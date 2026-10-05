@@ -1,4 +1,4 @@
-<!doctype html> <html lang="es"> <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width,initial-scale=1"> <meta name="theme-color" content="#242732"> <meta name="description" content="Sistema de Gestión Documental"> <title>SGD-DV | Sistema de Gestión Documental</title> <style> :root{ --blanco:#fff; --negro:#16181f; 
+<!doctype html> <html lang="es"> <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width,initial-scale=1"> <meta name="theme-color" content="#242732"> <meta name="description" content="Sistema de Gestión Documental"> <title>SSF-DV | Sistema de Seguimiento de Firmas</title> <style> :root{ --blanco:#fff; --negro:#16181f; 
 --dorado:#B5993A;
 --dorado-oscuro:#9E842D;
 --dorado-claro:#F5F1E4;
@@ -1321,7 +1321,7 @@ button{
     <div class="marca">
         <div class="marca-linea"></div>
         <div class="marca-texto">
-            <h1>SGD-DV</h1>
+            <h1>SSF-DV</h1>
             <p>Sistema de Gestión Documental</p>
         </div>
     </div>
@@ -1338,7 +1338,7 @@ button{
 <div class="tarjeta login-tarjeta">
     <div class="login-logo">
         <div class="login-simbolo">
-            SGD
+            SSF
         </div>
         <h2>Acceso al sistema</h2>
         <p>
@@ -2254,7 +2254,7 @@ button{
     <span class="bandera-amarillo"></span>
     <span class="bandera-verde"></span>
 </div>
-SGD-DV · Sistema de Gestión Documental
+SSF-DV · Sistema de Seguimiento de Firmas
 </footer> <script> 
 /* =========================================================
 CONFIGURACIÓN
@@ -2285,7 +2285,7 @@ o	sesiones
 ESTADO GLOBAL
 ========================================================= */
 const APP = {
-token: sessionStorage.getItem('sgd_token') || '',
+token: sessionStorage.getItem('ssf_token') || '',
 usuario: null,
 catalogos: null,
 registros: [],
@@ -2349,7 +2349,7 @@ const titulos = {
 
 
 $('tituloVista').textContent =
-    titulos[vista] || 'SGD-DV';
+    titulos[vista] || 'SSF-DV';
 
 
 if(vista === 'inicio'){
@@ -4519,7 +4519,7 @@ async () => {
 
 
             sessionStorage.setItem(
-                'sgd_token',
+                'ssf_token',
                 APP.token
             );
 
@@ -4603,7 +4603,7 @@ APP.registros = [];
 APP.registroActual = null;
 
 sessionStorage.removeItem(
-    'sgd_token'
+    'ssf_token'
 );
 
 
