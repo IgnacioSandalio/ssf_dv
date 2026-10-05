@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Seguimiento de Firmas VGCI</title>
+<style>
+*{box-sizing:border-box}body{font-family:Arial,sans-serif;margin:0;background:#f3f4f6;color:#222}
+header{background:#1f4e78;color:#fff;padding:12px 16px;display:flex;justify-content:space-between;align-items:center}
+main{padding:14px;max-width:900px;margin:auto}.p{background:#fff;border-radius:8px;padding:14px;margin-bottom:14px;box-shadow:0 2px 8px #0002}
+input,select,textarea,button{font-size:16px;padding:10px;width:100%;margin:4px 0 10px;border:1px solid #bbb;border-radius:6px}
+button{background:#1f4e78;color:#fff;border:0;cursor:pointer}button.s{background:#666}
+label{font-weight:bold;font-size:14px}.g{display:grid;gap:0 12px;grid-template-columns:1fr 1fr}
+@media(max-width:600px){.g{grid-template-columns:1fr}}
+.c{border:1px solid #ddd;border-radius:8px;padding:10px;margin:8px 0;cursor:pointer}
+.VERDE{color:#274e13}.AMARILLO{color:#b45f06}.ROJO{color:#990000}b.sem{font-size:13px}
+#msg{padding:10px;border-radius:6px;margin-bottom:12px;display:none}.ok{background:#d9ead3}.er{background:#f4cccc}
+.h{display:none}
+</style></head><body>
+<header><b>Seguimiento de Firmas VGCI</b><span id="quien"></span></header>
+<main>
+<div id="msg"></div>
+
+<div id="vLogin" class="p"><h3>Ingreso</h3>
+<label>Usuario</label><input id="lu" autocomplete="username" autocapitalize="none">
+<label>Contraseña</label><input id="lc" type="password" autocomplete="current-password">
+<button onclick="entrar()">Ingresar</button></div>
+
+<div id="vPrimer" class="p h"><h3>Primer acceso</h3><p>Por seguridad, elija su propio usuario y contraseña.</p>
+<label>Nuevo usuario (4 a 20 caracteres)</label><input id="pu" autocapitalize="none">
+<label>Nueva contraseña (mínimo 8)</label><input id="pc" type="password" autocomplete="new-password">
+<label>Repetir contraseña</label><input id="pc2" type="password" autocomplete="new-password">
+<button onclick="primer()">Guardar y continuar</button><button class="s" onclick="salir()">Salir</button></div>
+
+<div id="vApp" class="h">
+<div class="p"><h3>Buscar</h3><div class="g">
+<div><label>Cite / ID / Asunto</label><input id="bq"></div>
+<div><label>Estado</label><select id="be"></select></div></div>
+<button onclick="buscar()">Buscar</button><div id="lista"></div></div>
+<div class="p" id="pAlta"><h3>Nuevo registro</h3><div class="g">
+<div><label>Tipo documental</label><select id="at"></select></div>
+<div><label>Dependencia</label><select id="ad" onchange="unidades()"></select></div>
+<div><label>Unidad</label><select id="au"></select></div>
+<div><label>Número de Cite</label><input id="an" inputmode="numeric"></div>
+<div><label>Destino</label><select id="ade"></select></div>
+<div><label>Responsable</label><input id="ar"></div></div>
+<label>Destinatario</label><input id="adt"><label>Asunto</label><input id="aa">
+<label>Referencia</label><input id="arf"><button onclick="alta()">Registrar</button></div>
+<div class="p h" id="pUsu"><h3>Usuarios</h3><div id="lu2"></div><h4>Nuevo usuario</h4><div class="g">
+<div><label>Nombre completo</label><input id="un"></div>
+<div><label>Dependencia</label><select id="ud"></select></div>
+<div><label>Rol</label><select id="ur"><option>Registro</option><option>Revisor</option><option>Consulta</option><option>Administrador</option></select></div>
+<div><label>Usuario temporal</label><input id="ut" autocapitalize="none"></div>
+<div><label>Contraseña temporal</label><input id="uc"></div></div>
+<button class="s" onclick="$('uc').value=gen()">Generar contraseña</button><button onclick="crearUsr()">Crear usuario</button></div>
+<div class="p h" id="vDet"></div>
+<button class="s" onclick="salir()">Cerrar sesión</button>
+</div></main>
+<script>
+const API = "https://script.google.com/macros/s/AKfycbwktpBizP2ZVbYOx1V9v93509fzl66fi88QiiQcocuNf5RKAwZHCKNUXxlsYc0tZ-VJkw/exec";   // termina en /exec
+let token = sessionStorage.getItem("tk") || "", cat = null;
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function msg(t, ok) { const m = $("msg"); m.textContent = t; m.className = ok ? "ok" : "er"; m.style.display = t ? "block" : "none"; }
+async function sha(s) { const b = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(s));
+  return [...new Uint8Array(b)].map(x => x.toString(16).padStart(2, "0")).join(""); }
+async function api(p) {
+  p.token = token;
+  const r = await fetch(API, { method: "POST", body: JSON.stringify(p) });   // text/plain: evita CORS previo
+  const j = await r.json();
+  if (!j.ok) { if (j.mensaje === "SESION_EXPIRADA") salir(); throw new Error(j.mensaje); }
+  return j;
+}
+async function entrar() {
+  try { msg("");
+    const u = $("lu").value.trim().toLowerCase();
+    const j = await api({ op: "login", usuario: u, clave: await sha(u + ":" + $("lc").value) });
+    token = j.token; sessionStorage.setItem("tk", token); $("lc").value = ""; if (j.usuario.pendiente) mostrarPrimer(); else await iniciar();
+  } catch (e) { msg(e.message); } }
+function salir() { if (token) fetch(API, { method: "POST", body: JSON.stringify({ op: "logout", token }) }).catch(() => {});
+  token = ""; sessionStorage.removeItem("tk"); $("vLogin").classList.remove("h"); $("vApp").classList.add("h"); $("vPrimer").classList.add("h"); $("quien").textContent = ""; }
+const opts = (a, v, t) => a.map(x => `<option value="${esc(v ? x[v] : x)}">${esc(t ? t(x) : x)}</option>`).join("");
+async function iniciar() {
+  try { cat = await api({ op: "catalogos" }); } catch (e) { if (/cambiar su usuario/.test(e.message)) mostrarPrimer(); return; }
+  $("vLogin").classList.add("h"); $("vApp").classList.remove("h");
+  $("quien").textContent = cat.usuario.nombre + " (" + cat.usuario.rol + ")";
+  $("be").innerHTML = '<option value="">Todos</option>' + opts(cat.estados);
+  $("at").innerHTML = opts(cat.tipos, "Codigo", x => x.Codigo + " - " + x.Tipo);
+  $("ad").innerHTML = opts(cat.dependencias, "Sigla", x => x.Sigla);
+  $("ade").innerHTML = opts(cat.destinos); unidades();
+  $("pAlta").classList.toggle("h", !["Administrador", "Registro"].includes(cat.usuario.rol));
+  const adm = cat.usuario.rol === "Administrador"; $("pUsu").classList.toggle("h", !adm);
+  if (adm) { $("ud").innerHTML = '<option value="">(sin dependencia)</option>' + opts(cat.dependencias, "Sigla", x => x.Sigla); usuarios(); }
+  buscar();
+}
+function unidades() { $("au").innerHTML = opts(cat.unidades.filter(u => u.Dependencia === $("ad").value), "Sigla", x => x.Sigla); }
+async function buscar() {
+  try { const q = $("bq").value.trim(), f = { Estado: $("be").value };
+    const j = await api({ op: "buscar", filtros: q ? Object.assign(f, /^REG-/i.test(q) ? { ID_Registro: q } : { Cite: q }) : f });
+    $("lista").innerHTML = j.registros.map(r => `<div class="c" onclick="ver('${esc(r.ID_Registro)}')">
+      <b>${esc(r.Cite)}</b><br>${esc(r.Asunto)}<br>${esc(r.Estado)} · ${esc(r.Destino)}
+      <b class="sem ${r.Semaforo}"> ● ${esc(r.Semaforo)}</b></div>`).join("") || "<p>Sin resultados.</p>";
+  } catch (e) { msg(e.message); } }
+async function alta() {
+  try { const j = await api({ op: "alta", gestion: cat.gestion, tipo: $("at").value, dependencia: $("ad").value,
+      unidad: $("au").value, numeroCite: $("an").value, destino: $("ade").value, responsable: $("ar").value,
+      destinatario: $("adt").value, asunto: $("aa").value, referencia: $("arf").value });
+    msg("Registrado: " + j.id + " — " + j.cite, true); buscar();
+  } catch (e) { msg(e.message); } }
+async function ver(id) {
+  try { const j = await api({ op: "obtener", id }), r = j.registro, rol = cat.usuario.rol;
+    const sig = cat.transiciones[r.Estado] || [];
+    $("vDet").innerHTML = `<h3>${esc(r.Cite)}</h3><p>${esc(r.ID_Registro)} · ${esc(r.Asunto)}<br>Estado: <b>${esc(r.Estado)}</b> · ${esc(r.Destino)}
+      · <b class="sem ${r.Semaforo}">${esc(r.Semaforo)}</b> (${esc(r.Tiempo_Transcurrido)})<br>
+      ${r.Enlace_PDF ? `<a href="${esc(r.Enlace_PDF)}" target="_blank" rel="noopener">Ver PDF</a>` : "Sin PDF"}</p>
+      ${["Administrador", "Revisor"].includes(rol) && sig.length ? `<label>Nuevo estado</label><select id="ne">${opts(sig)}</select>
+      <label>Observaciones</label><input id="no"><button onclick="estado('${esc(id)}')">Cambiar estado</button>` : ""}
+      ${["Administrador", "Registro", "Revisor"].includes(rol) ? `<label>Cargar PDF</label><input id="pf" type="file" accept="application/pdf">
+      <button onclick="pdf('${esc(id)}')">Subir PDF</button>` : ""}
+      ${j.historial ? "<h4>Historial</h4>" + j.historial.map(h => `<div>${esc(h.Fecha)} ${esc(h.Hora)} · ${esc(h.Usuario)} · ${esc(h.Estado_Anterior)} → ${esc(h.Estado_Nuevo)}</div>`).join("") : ""}`;
+    $("vDet").classList.remove("h"); $("vDet").scrollIntoView();
+  } catch (e) { msg(e.message); } }
+async function estado(id) {
+  try { await api({ op: "cambiarEstado", id, estado: $("ne").value, obs: $("no").value }); msg("Estado actualizado.", true); ver(id); buscar();
+  } catch (e) { msg(e.message); } }
+function pdf(id) {
+  const f = $("pf").files[0];
+  if (!f || f.type !== "application/pdf") return msg("Seleccione un archivo PDF.");
+  if (f.size > 8 * 1024 * 1024) return msg("El PDF no debe superar 8 MB.");
+  const rd = new FileReader();
+  rd.onload = async () => { try { await api({ op: "subirPdf", id, base64: rd.result.split(",")[1] }); msg("PDF cargado.", true); ver(id); }
+    catch (e) { msg(e.message); } };
+  rd.readAsDataURL(f);
+}
+function gen() { const a = "abcdefghjkmnpqrstuvwxyz23456789"; return Array.from(crypto.getRandomValues(new Uint8Array(10)), x => a[x % a.length]).join(""); }
+function mostrarPrimer() { $("vLogin").classList.add("h"); $("vApp").classList.add("h"); $("vPrimer").classList.remove("h"); }
+async function primer() {
+  try { msg(""); const n = $("pu").value.trim().toLowerCase(), c = $("pc").value;
+    if (!/^[a-z0-9._-]{4,20}$/.test(n)) return msg("Usuario: 4 a 20 caracteres (letras, números, punto o guion).");
+    if (c.length < 8) return msg("La contraseña debe tener al menos 8 caracteres.");
+    if (c !== $("pc2").value) return msg("Las contraseñas no coinciden.");
+    await api({ op: "primerAcceso", nuevoUsuario: n, claveNueva: await sha(n + ":" + c) });
+    $("pc").value = $("pc2").value = ""; $("vPrimer").classList.add("h"); await iniciar(); msg("Credenciales actualizadas.", true);
+  } catch (e) { msg(e.message); } }
+async function usuarios() {
+  try { const j = await api({ op: "listarUsuarios" });
+    $("lu2").innerHTML = j.usuarios.map(u => `<div class="c" style="cursor:default"><b>${esc(u.Nombre_Completo)}</b> · ${esc(u.Rol)} · ${esc(u.Nombre_Usuario)}<br>
+      ${u.Activo === "SI" ? "Activo" : "Inactivo"}${u.Debe_Cambiar === "SI" ? " · pendiente de primer acceso" : ""}
+      <button class="s" onclick="resetUsr('${esc(u.ID_Usuario)}')">Restablecer</button>
+      <button class="s" onclick="actUsr('${esc(u.ID_Usuario)}',${u.Activo === "SI" ? "false" : "true"})">${u.Activo === "SI" ? "Desactivar" : "Activar"}</button></div>`).join("");
+  } catch (e) { msg(e.message); } }
+async function crearUsr() {
+  try { const n = $("ut").value.trim().toLowerCase(), c = $("uc").value, nom = $("un").value.trim();
+    if (!nom || !n || !c) return msg("Complete nombre, usuario y contraseña temporales.");
+    await api({ op: "crearUsuario", usuario: n, clave: await sha(n + ":" + c), nombreCompleto: nom, dependencia: $("ud").value, rol: $("ur").value });
+    msg("Usuario creado. Entregue: " + n + " / " + c + " (deberá cambiarlos al ingresar).", true);
+    ["un", "ut", "uc"].forEach(i => $(i).value = ""); usuarios();
+  } catch (e) { msg(e.message); } }
+async function resetUsr(id) {
+  try { const n = (prompt("Usuario temporal (4 a 20 caracteres):") || "").trim().toLowerCase(); if (!n) return;
+    const c = gen(); await api({ op: "restablecerUsuario", id, usuario: n, clave: await sha(n + ":" + c) });
+    msg("Restablecido. Entregue: " + n + " / " + c, true); usuarios();
+  } catch (e) { msg(e.message); } }
+async function actUsr(id, activo) { try { await api({ op: "estadoUsuario", id, activo }); usuarios(); } catch (e) { msg(e.message); } }
+if (token) iniciar();
+</script></body></html>
