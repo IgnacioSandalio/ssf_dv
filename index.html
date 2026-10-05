@@ -12,7 +12,6 @@
     --blanco:#FFFFFF;
     --dorado:#B5993A;
     --dorado-oscuro:#9E842D;
-
     --gris-institucional:#585857;
     --azul-institucional:#242732;
 
@@ -31,14 +30,11 @@
     --azul-hover:#303441;
 
     --azul:#2563EB;
-    --azul-claro:#EFF6FF;
-    --rojo-claro:#F8D7DA;
-    --verde-claro:#E1F0E6;
-    --amarillo-claro:#FFF8DC;
+    --azul-oscuro:#1D4ED8;
 
     --sombra-suave:0 2px 8px rgba(36,39,50,.07);
-    --sombra-media:0 5px 18px rgba(36,39,50,.10);
-    --sombra-fuerte:0 20px 60px rgba(0,0,0,.20);
+    --sombra-media:0 8px 25px rgba(36,39,50,.12);
+    --sombra-fuerte:0 20px 60px rgba(0,0,0,.22);
 
     --radio:8px;
     --radio-grande:12px;
@@ -58,9 +54,12 @@ html{
 body{
     margin:0;
     min-height:100vh;
+
     font-family:Arial,Helvetica,sans-serif;
+
     background:var(--fondo);
     color:var(--azul-institucional);
+
     line-height:1.45;
 }
 
@@ -87,20 +86,16 @@ textarea:focus-visible{
     outline-offset:2px;
 }
 
-input:disabled,
-select:disabled,
-textarea:disabled{
-    background:#F1F1EF;
-    cursor:not-allowed;
-    opacity:.75;
-}
-
-h1,h2,h3,h4,p{
+h1,
+h2,
+h3,
+h4,
+p{
     margin-top:0;
 }
 
 a{
-    color:var(--azul);
+    color:inherit;
 }
 
 .hidden{
@@ -111,11 +106,11 @@ a{
     color:var(--gris-institucional);
 }
 
-.text-center{
+.texto-centro{
     text-align:center;
 }
 
-.text-right{
+.texto-derecha{
     text-align:right;
 }
 
@@ -125,19 +120,23 @@ a{
 
 .encabezado{
     position:relative;
+
     background:var(--azul-institucional);
     color:var(--blanco);
+
     padding:22px 30px 0;
 }
 
 .encabezado-contenido{
     width:min(1200px,94%);
     min-height:82px;
+
     margin:0 auto;
 
     display:flex;
     justify-content:space-between;
     align-items:center;
+
     gap:20px;
 }
 
@@ -145,24 +144,26 @@ a{
     display:flex;
     align-items:center;
     gap:16px;
+
     min-width:0;
 }
 
 .marca-linea{
     flex:0 0 auto;
-    width:4px;
-    height:50px;
-    background:var(--dorado);
-    border-radius:2px;
-}
 
-.marca-texto{
-    min-width:0;
+    width:4px;
+    height:52px;
+
+    background:var(--dorado);
+
+    border-radius:2px;
 }
 
 .encabezado h1{
     margin:0;
+
     color:var(--blanco);
+
     font-size:24px;
     font-weight:600;
     line-height:1.2;
@@ -170,20 +171,30 @@ a{
 
 .encabezado p{
     margin:6px 0 0;
+
     color:#D8D8D6;
-    font-size:14px;
-    letter-spacing:.35px;
+
+    font-size:13px;
+
+    letter-spacing:.5px;
 }
 
 .conexion{
     padding:9px 15px;
+
     border-radius:20px;
+
     background:var(--gris-institucional);
     color:var(--blanco);
+
     border:1px solid rgba(255,255,255,.15);
+
     font-size:13px;
     font-weight:600;
+
     white-space:nowrap;
+
+    transition:.2s ease;
 }
 
 .conexion.ok{
@@ -200,9 +211,12 @@ a{
 
 .bandera-bolivia{
     display:flex;
+
     width:100%;
     height:4px;
+
     margin-top:16px;
+
     overflow:hidden;
 }
 
@@ -228,6 +242,7 @@ a{
 
 .contenedor{
     width:min(1200px,94%);
+
     margin:28px auto 34px;
 }
 
@@ -237,16 +252,23 @@ a{
 
 .tarjeta{
     background:var(--blanco);
+
     border:1px solid var(--gris-claro);
+
     border-radius:var(--radio);
+
     padding:24px;
+
     margin-bottom:20px;
+
     box-shadow:var(--sombra-suave);
 }
 
 .tarjeta h2{
     margin-bottom:0;
+
     color:var(--azul-institucional);
+
     font-size:20px;
     font-weight:600;
 }
@@ -261,24 +283,35 @@ a{
 
 .etiqueta-institucional{
     display:block;
+
     color:var(--dorado);
+
     font-size:11px;
     font-weight:bold;
+
     letter-spacing:1.2px;
+
     margin-bottom:5px;
+}
+
+.titulo-seccion{
+    display:flex;
+
+    justify-content:space-between;
+    align-items:center;
+
+    gap:20px;
 }
 
 .separador-dorado{
     width:48px;
     height:3px;
-    margin:12px 0 18px;
-    background:var(--dorado);
-    border-radius:2px;
-}
 
-.separador-centro{
-    margin-left:auto;
-    margin-right:auto;
+    margin:12px 0 18px;
+
+    background:var(--dorado);
+
+    border-radius:2px;
 }
 
 /* =========================================================
@@ -287,11 +320,16 @@ a{
 
 button{
     min-height:42px;
+
     padding:10px 18px;
+
     border-radius:5px;
+
     background:var(--dorado);
     color:var(--blanco);
+
     cursor:pointer;
+
     font-size:14px;
     font-weight:bold;
 
@@ -304,7 +342,9 @@ button{
 
 button:hover{
     background:var(--dorado-oscuro);
-    box-shadow:0 2px 5px rgba(36,39,50,.12);
+
+    box-shadow:
+        0 2px 5px rgba(36,39,50,.12);
 }
 
 button:active{
@@ -313,8 +353,12 @@ button:active{
 
 button:disabled{
     background:#A5A5A2;
+
     cursor:not-allowed;
+
     box-shadow:none;
+
+    opacity:.75;
 }
 
 button.alt{
@@ -324,14 +368,6 @@ button.alt{
 
 button.alt:hover{
     background:#D8D8D6;
-}
-
-button.primary{
-    background:var(--azul);
-}
-
-button.primary:hover{
-    background:#1D4ED8;
 }
 
 button.danger{
@@ -350,19 +386,46 @@ button.success:hover{
     background:#006E2E;
 }
 
-button.warning{
-    background:#D9A900;
-    color:#fff;
+button.primary{
+    background:var(--azul);
+}
+
+button.primary:hover{
+    background:var(--azul-oscuro);
 }
 
 button.small{
     min-height:34px;
+
     padding:7px 11px;
+
     font-size:12px;
 }
 
-button.full{
-    width:100%;
+button.icon-btn{
+    width:38px;
+    min-width:38px;
+
+    height:38px;
+    min-height:38px;
+
+    padding:0;
+
+    display:inline-flex;
+
+    justify-content:center;
+    align-items:center;
+
+    border-radius:50%;
+
+    background:#E7E7E5;
+    color:var(--azul-institucional);
+
+    font-size:18px;
+}
+
+button.icon-btn:hover{
+    background:#D8D8D6;
 }
 
 /* =========================================================
@@ -371,28 +434,34 @@ button.full{
 
 label{
     display:block;
+
     margin:10px 0 5px;
+
     color:var(--gris-institucional);
+
     font-size:13px;
     font-weight:600;
-}
-
-label.required::after{
-    content:" *";
-    color:var(--rojo-error);
 }
 
 input,
 select,
 textarea{
     width:100%;
+
     padding:11px 12px;
+
     border:1px solid var(--gris-borde);
+
     border-radius:5px;
+
     background:var(--blanco);
     color:var(--azul-institucional);
+
     outline:none;
-    transition:border-color .2s ease,box-shadow .2s ease;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease;
 }
 
 input:hover,
@@ -405,59 +474,75 @@ input:focus,
 select:focus,
 textarea:focus{
     border-color:var(--dorado);
-    box-shadow:0 0 0 3px rgba(181,153,58,.15);
+
+    box-shadow:
+        0 0 0 3px rgba(181,153,58,.15);
+}
+
+input[readonly]{
+    background:#F5F5F4;
 }
 
 textarea{
     min-height:100px;
+
     resize:vertical;
 }
 
-.form-hint{
+input[type="file"]{
+    padding:9px;
+}
+
+.help{
+    display:block;
+
     margin-top:5px;
+
     color:var(--gris-medio);
+
     font-size:11px;
+}
+
+.obligatorio{
+    color:var(--rojo-error);
 }
 
 .grid{
     display:grid;
-    grid-template-columns:repeat(3,minmax(0,1fr));
+
+    grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
     gap:12px;
 }
 
 .grid-2{
     display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
+
+    grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
     gap:12px;
 }
 
 .fila{
     display:flex;
+
     align-items:center;
+
     gap:10px;
+
     flex-wrap:wrap;
 }
 
 .fila-busqueda{
     display:flex;
+
     gap:10px;
 }
 
 .fila-busqueda input{
     flex:1;
-}
-
-.acciones{
-    display:flex;
-    justify-content:flex-end;
-    align-items:center;
-    gap:10px;
-    flex-wrap:wrap;
-    margin-top:20px;
-}
-
-.acciones-centro{
-    justify-content:center;
 }
 
 /* =========================================================
@@ -466,65 +551,72 @@ textarea{
 
 #vistaLogin{
     min-height:100vh;
+
     display:flex;
+
     align-items:center;
     justify-content:center;
-    padding:25px 15px;
-    background:
-        linear-gradient(
-            135deg,
-            #242732 0%,
-            #303441 55%,
-            #242732 100%
-        );
+
+    padding:25px;
 }
 
 .login-tarjeta{
     width:min(440px,100%);
-    margin:0;
+
+    margin:30px auto;
+
+    padding:30px;
+
+    background:#fff;
+
+    border:1px solid var(--gris-claro);
+
+    border-radius:10px;
+
+    box-shadow:var(--sombra-media);
 }
 
 .login-logo{
     text-align:center;
+
     margin-bottom:25px;
 }
 
 .login-logo .simbolo{
-    width:70px;
-    height:70px;
+    width:72px;
+    height:72px;
+
     margin:0 auto 15px;
+
     border-radius:50%;
+
     display:flex;
+
     align-items:center;
     justify-content:center;
+
     background:var(--azul-institucional);
+
     color:var(--dorado);
-    font-size:24px;
+
+    font-size:25px;
     font-weight:bold;
+
     border:3px solid var(--dorado);
 }
 
 .login-logo h1{
     margin-bottom:5px;
+
     color:var(--azul-institucional);
+
     font-size:22px;
 }
 
 .login-logo p{
-    margin-bottom:0;
     color:var(--gris-institucional);
-    font-size:13px;
-}
 
-.login-seguridad{
-    margin-top:18px;
-    padding:11px 13px;
-    background:#FAFAF9;
-    border:1px solid var(--gris-claro);
-    border-left:4px solid var(--dorado);
-    border-radius:5px;
-    color:var(--gris-institucional);
-    font-size:12px;
+    font-size:13px;
 }
 
 /* =========================================================
@@ -533,10 +625,15 @@ textarea{
 
 .menu{
     display:flex;
+
     flex-wrap:wrap;
+
     gap:8px;
+
     margin-bottom:22px;
+
     padding-bottom:18px;
+
     border-bottom:1px solid var(--gris-claro);
 }
 
@@ -546,27 +643,38 @@ textarea{
 
 .menu button.activo{
     background:var(--azul-institucional);
+    color:#fff;
 }
 
 .usuario-menu{
     margin-left:auto;
+
     display:flex;
+
     align-items:center;
+
     gap:10px;
+
     color:var(--gris-institucional);
+
     font-size:13px;
 }
 
 .usuario-avatar{
     width:34px;
     height:34px;
-    border-radius:50%;
-    background:var(--azul-institucional);
-    color:var(--dorado);
+
     display:flex;
+
     align-items:center;
     justify-content:center;
-    font-size:12px;
+
+    border-radius:50%;
+
+    background:var(--azul-institucional);
+
+    color:#fff;
+
     font-weight:bold;
 }
 
@@ -576,28 +684,54 @@ textarea{
 
 .indicadores{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+
+    grid-template-columns:
+        repeat(4,1fr);
+
     gap:14px;
+
     margin-bottom:20px;
 }
 
 .indicador{
     position:relative;
+
     overflow:hidden;
+
     background:var(--blanco);
+
     border:1px solid var(--gris-claro);
+
     border-radius:8px;
+
     padding:18px;
+
     box-shadow:var(--sombra-suave);
+
+    cursor:pointer;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.indicador:hover{
+    transform:translateY(-2px);
+
+    box-shadow:var(--sombra-media);
 }
 
 .indicador::before{
     content:"";
+
     position:absolute;
+
     left:0;
     top:0;
     bottom:0;
+
     width:4px;
+
     background:var(--dorado);
 }
 
@@ -619,57 +753,112 @@ textarea{
 
 .indicador-label{
     color:var(--gris-institucional);
+
     font-size:12px;
+
     font-weight:bold;
+
     text-transform:uppercase;
+
     letter-spacing:.5px;
 }
 
 .indicador-numero{
     margin-top:6px;
+
     font-size:29px;
+
     font-weight:bold;
+
     color:var(--azul-institucional);
 }
 
 .indicador-detalle{
     margin-top:3px;
+
     color:var(--gris-medio);
+
     font-size:12px;
 }
 
 /* =========================================================
-   TÍTULOS
+   DATOS
 ========================================================= */
 
-.titulo-seccion{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:20px;
+.datos-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
+    gap:14px;
 }
 
-.titulo-seccion h2{
-    margin-bottom:0;
+.campo{
+    padding:13px;
+
+    background:#FAFAF9;
+
+    border:1px solid var(--gris-claro);
+
+    border-radius:6px;
+}
+
+.campo span{
+    display:block;
+
+    margin-bottom:4px;
+
+    color:var(--gris-medio);
+
+    font-size:11px;
+
+    font-weight:bold;
+
+    text-transform:uppercase;
+
+    letter-spacing:.4px;
+}
+
+.campo strong{
+    color:var(--azul-institucional);
+
+    font-size:14px;
+
+    word-break:break-word;
+}
+
+.campo-ancho{
+    grid-column:1/-1;
 }
 
 /* =========================================================
-   BADGES / SEMÁFORO
+   ESTADOS
 ========================================================= */
 
 .semaforo{
     display:inline-flex;
+
     justify-content:center;
     align-items:center;
+
     min-width:85px;
     min-height:30px;
+
     padding:6px 12px;
+
     border-radius:20px;
+
     background:var(--gris-institucional);
+
     color:var(--blanco);
+
     font-size:12px;
+
     font-weight:bold;
+
     text-align:center;
+
     white-space:nowrap;
 }
 
@@ -679,6 +868,7 @@ textarea{
 
 .semaforo.amarillo{
     background:var(--amarillo-alerta);
+
     color:var(--azul-institucional);
 }
 
@@ -686,11 +876,35 @@ textarea{
     background:var(--rojo-error);
 }
 
+.estado-badge{
+    display:inline-block;
+
+    padding:5px 9px;
+
+    border-radius:12px;
+
+    background:#E7E7E5;
+
+    color:var(--gris-institucional);
+
+    font-size:11px;
+
+    font-weight:bold;
+}
+
+/* =========================================================
+   BADGES
+========================================================= */
+
 .badge{
     display:inline-block;
+
     padding:5px 9px;
+
     border-radius:12px;
+
     font-size:11px;
+
     font-weight:bold;
 }
 
@@ -710,8 +924,8 @@ textarea{
 }
 
 .badge.azul{
-    background:#E8F0FE;
-    color:#1D4ED8;
+    background:#DBEAFE;
+    color:#1E40AF;
 }
 
 .badge.gris{
@@ -720,76 +934,56 @@ textarea{
 }
 
 /* =========================================================
-   DATOS
-========================================================= */
-
-.datos-grid{
-    display:grid;
-    grid-template-columns:repeat(3,minmax(0,1fr));
-    gap:14px;
-}
-
-.campo{
-    padding:13px;
-    background:#FAFAF9;
-    border:1px solid var(--gris-claro);
-    border-radius:6px;
-}
-
-.campo span{
-    display:block;
-    margin-bottom:4px;
-    color:var(--gris-medio);
-    font-size:11px;
-    font-weight:bold;
-    text-transform:uppercase;
-    letter-spacing:.4px;
-}
-
-.campo strong{
-    color:var(--azul-institucional);
-    font-size:14px;
-    word-break:break-word;
-}
-
-.campo-ancho{
-    grid-column:1/-1;
-}
-
-/* =========================================================
    TABLAS
 ========================================================= */
 
 .tabla-contenedor{
     width:100%;
+
     overflow-x:auto;
+
     border:1px solid var(--gris-claro);
+
     border-radius:5px;
+
     -webkit-overflow-scrolling:touch;
 }
 
 table{
     width:100%;
-    min-width:860px;
+
+    min-width:850px;
+
     border-collapse:collapse;
+
     background:var(--blanco);
+
     font-size:13px;
 }
 
 th{
     padding:11px 10px;
+
     background:var(--azul-institucional);
+
     color:var(--blanco);
+
     text-align:left;
+
     font-weight:600;
+
     white-space:nowrap;
+
     border-bottom:3px solid var(--dorado);
 }
 
 td{
     padding:10px;
+
     border-bottom:1px solid var(--gris-claro);
+
     vertical-align:top;
+
     color:var(--gris-institucional);
 }
 
@@ -797,22 +991,20 @@ tbody tr:last-child td{
     border-bottom:0;
 }
 
-tbody tr:nth-child(even){
+tr:nth-child(even){
     background:#FAFAF9;
 }
 
-tbody tr:hover{
+tr:hover{
     background:#F5F1E4;
 }
 
 .acciones-tabla{
     display:flex;
-    gap:5px;
-    flex-wrap:wrap;
-}
 
-.texto-anulado{
-    text-decoration:line-through;
+    gap:5px;
+
+    flex-wrap:wrap;
 }
 
 /* =========================================================
@@ -821,145 +1013,202 @@ tbody tr:hover{
 
 .mensaje{
     margin-top:15px;
+
     padding:12px 14px;
+
     border-radius:5px;
+
     background:#F3EBD2;
+
     color:#66551F;
+
     border-left:4px solid var(--dorado);
+
     font-size:14px;
 }
 
 .mensaje.error{
     background:#F8D7DA;
+
     color:#842029;
+
     border-left-color:var(--rojo-error);
 }
 
 .mensaje.ok{
     background:#E1F0E6;
+
     color:#185C2C;
+
     border-left-color:var(--verde-ok);
 }
 
 .mensaje.info{
-    background:#EFF6FF;
+    background:#DBEAFE;
+
     color:#1E40AF;
+
     border-left-color:#2563EB;
 }
 
 /* =========================================================
-   TARJETAS DE ADVERTENCIA
+   ALERTAS / TARJETAS DE ADVERTENCIA
 ========================================================= */
 
 .alerta-card{
     display:flex;
+
     align-items:flex-start;
+
     gap:14px;
+
     padding:16px;
+
     margin-bottom:18px;
+
     border-radius:8px;
+
     border:1px solid;
 }
 
-.alerta-card .icono{
+.alerta-card .alerta-icono{
     flex:0 0 auto;
+
     width:40px;
     height:40px;
-    border-radius:50%;
+
     display:flex;
+
     align-items:center;
     justify-content:center;
-    font-weight:bold;
-    font-size:18px;
+
+    border-radius:50%;
+
+    font-size:20px;
 }
 
-.alerta-card .contenido{
+.alerta-card .alerta-contenido{
+    flex:1;
+
     min-width:0;
 }
 
-.alerta-card h3{
-    margin:0 0 5px;
+.alerta-card h4{
+    margin:0 0 4px;
+
     font-size:15px;
 }
 
 .alerta-card p{
     margin:0;
+
     font-size:13px;
+
+    line-height:1.5;
 }
 
-.alerta-warning{
-    background:#FFF8DC;
-    border-color:#E5DDBD;
+.alerta-advertencia{
+    background:#FFF8E1;
+
+    border-color:#E8D58A;
+
     color:#66551F;
 }
 
-.alerta-warning .icono{
+.alerta-advertencia .alerta-icono{
     background:#F3EBD2;
-    color:#66551F;
-}
 
-.alerta-error{
-    background:#FFF0F1;
-    border-color:#F1C4C7;
-    color:#842029;
-}
-
-.alerta-error .icono{
-    background:#F8D7DA;
-    color:#842029;
-}
-
-.alerta-ok{
-    background:#EFF8F1;
-    border-color:#C8E5CF;
-    color:#185C2C;
-}
-
-.alerta-ok .icono{
-    background:#E1F0E6;
-    color:#185C2C;
+    color:#8A711D;
 }
 
 .alerta-info{
     background:#EFF6FF;
+
     border-color:#BFDBFE;
+
     color:#1E40AF;
 }
 
-.alerta-info .icono{
+.alerta-info .alerta-icono{
     background:#DBEAFE;
-    color:#1D4ED8;
+
+    color:#2563EB;
+}
+
+.alerta-exito{
+    background:#F0FDF4;
+
+    border-color:#BBE7C7;
+
+    color:#185C2C;
+}
+
+.alerta-exito .alerta-icono{
+    background:#DCFCE7;
+
+    color:#008739;
+}
+
+.alerta-peligro{
+    background:#FFF1F2;
+
+    border-color:#F5C2C7;
+
+    color:#842029;
+}
+
+.alerta-peligro .alerta-icono{
+    background:#F8D7DA;
+
+    color:#C62828;
 }
 
 /* =========================================================
-   MODALES
+   MODAL
 ========================================================= */
 
 .modal{
     position:fixed;
+
     inset:0;
+
     z-index:9999;
+
     display:flex;
+
     justify-content:center;
     align-items:center;
+
     padding:20px;
+
     background:rgba(36,39,50,.68);
-    backdrop-filter:blur(2px);
+
+    backdrop-filter:blur(3px);
+    -webkit-backdrop-filter:blur(3px);
+
+    animation:modalFondo .15s ease;
 }
 
 .modal-contenido{
-    width:min(700px,100%);
-    max-height:92vh;
+    width:min(650px,100%);
+
+    max-height:90vh;
+
     overflow:auto;
+
     background:var(--blanco);
+
     border-radius:10px;
+
     box-shadow:var(--sombra-fuerte);
+
     padding:25px;
-    animation:modalEntrada .18s ease-out;
+
+    animation:modalEntrada .2s ease-out;
 }
 
 .modal-pequeno{
-    width:min(460px,100%);
+    width:min(450px,100%);
 }
 
 .modal-grande{
@@ -968,39 +1217,51 @@ tbody tr:hover{
 
 .modal-cabecera{
     display:flex;
+
     justify-content:space-between;
-    align-items:flex-start;
+
+    align-items:center;
+
     gap:15px;
+
     margin-bottom:20px;
+
+    padding-bottom:15px;
+
+    border-bottom:1px solid var(--gris-claro);
 }
 
 .modal-cabecera h2{
     margin:0;
+
     font-size:20px;
 }
 
-.modal-cerrar{
-    width:36px;
-    min-height:36px;
-    padding:0;
-    border-radius:50%;
-    background:#E7E7E5;
-    color:var(--azul-institucional);
-    font-size:18px;
-}
-
-.modal-cerrar:hover{
-    background:#D8D8D6;
+.modal-cuerpo{
+    min-width:0;
 }
 
 .modal-pie{
     display:flex;
+
     justify-content:flex-end;
-    gap:10px;
+
+    align-items:center;
+
+    gap:8px;
+
     flex-wrap:wrap;
+
     margin-top:22px;
-    padding-top:18px;
+
+    padding-top:15px;
+
     border-top:1px solid var(--gris-claro);
+}
+
+@keyframes modalFondo{
+    from{opacity:0}
+    to{opacity:1}
 }
 
 @keyframes modalEntrada{
@@ -1008,6 +1269,7 @@ tbody tr:hover{
         opacity:0;
         transform:translateY(10px) scale(.98);
     }
+
     to{
         opacity:1;
         transform:translateY(0) scale(1);
@@ -1015,361 +1277,318 @@ tbody tr:hover{
 }
 
 /* =========================================================
-   SPINNER
+   QR / VERIFICACIÓN
 ========================================================= */
 
-.cargando-overlay{
-    position:fixed;
-    inset:0;
-    z-index:10000;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:rgba(36,39,50,.45);
-    backdrop-filter:blur(2px);
+.qr-resultado-card,
+.qr-indice-card{
+    width:100%;
+
+    max-width:900px;
+
+    margin:0 auto;
+
+    text-align:center;
+
+    padding:26px;
+
+    background:#fff;
+
+    border:1px solid var(--gris-claro);
+
+    border-radius:10px;
+
+    box-shadow:var(--sombra-suave);
 }
 
-.cargando-box{
-    width:min(320px,90%);
-    padding:25px;
+.qr-resultado-icono{
+    width:58px;
+    height:58px;
+
+    margin:0 auto 12px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:#E1F0E6;
+
+    color:var(--verde-ok);
+
+    font-size:32px;
+
+    font-weight:bold;
+}
+
+.qr-resultado-titulo{
+    color:var(--verde-ok);
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    letter-spacing:1px;
+}
+
+.qr-resultado-subtitulo{
+    margin-top:20px;
+
+    color:var(--gris-institucional);
+
+    font-size:13px;
+
+    font-weight:bold;
+
+    letter-spacing:1.2px;
+}
+
+.qr-ubicacion-principal{
+    margin:12px 0 22px;
+
+    color:var(--azul-institucional);
+
+    font-size:30px;
+
+    font-weight:bold;
+
+    letter-spacing:1px;
+}
+
+.qr-ubicacion-detalle{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
+    gap:12px;
+
+    max-width:600px;
+
+    margin:0 auto 22px;
+}
+
+.qr-ubicacion-detalle > div{
+    padding:14px;
+
+    background:#FAFAF9;
+
+    border:1px solid var(--gris-claro);
+
+    border-radius:7px;
+}
+
+.qr-ubicacion-detalle span{
+    display:block;
+
+    margin-bottom:5px;
+
+    color:var(--gris-medio);
+
+    font-size:10px;
+
+    font-weight:bold;
+
+    text-transform:uppercase;
+
+    letter-spacing:.7px;
+}
+
+.qr-ubicacion-detalle strong{
+    display:block;
+
+    color:var(--azul-institucional);
+
+    font-size:20px;
+}
+
+/* =========================================================
+   CARGA PDF
+========================================================= */
+
+.pdf-dropzone{
+    padding:28px;
+
     text-align:center;
-    background:#fff;
+
+    background:#FAFAF9;
+
+    border:2px dashed var(--gris-borde);
+
     border-radius:10px;
-    box-shadow:var(--sombra-fuerte);
+
+    transition:
+        border-color .2s ease,
+        background .2s ease;
+}
+
+.pdf-dropzone:hover,
+.pdf-dropzone.dragover{
+    border-color:var(--dorado);
+
+    background:#F9F6EA;
+}
+
+.pdf-dropzone-icon{
+    width:58px;
+    height:58px;
+
+    margin:0 auto 12px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:#F3EBD2;
+
+    color:#8A711D;
+
+    font-size:25px;
+}
+
+.pdf-nombre{
+    margin-top:12px;
+
+    color:var(--azul-institucional);
+
+    font-size:13px;
+
+    font-weight:bold;
+
+    word-break:break-word;
+}
+
+.pdf-tamano{
+    margin-top:4px;
+
+    color:var(--gris-medio);
+
+    font-size:12px;
+}
+
+.pdf-progreso{
+    height:8px;
+
+    margin-top:15px;
+
+    overflow:hidden;
+
+    border-radius:10px;
+
+    background:#E7E7E5;
+}
+
+.pdf-progreso-barra{
+    width:0;
+
+    height:100%;
+
+    background:var(--verde-ok);
+
+    transition:width .2s ease;
+}
+
+/* =========================================================
+   ESTADO DE CARGA
+========================================================= */
+
+.cargando{
+    opacity:.65;
+
+    pointer-events:none;
 }
 
 .spinner{
-    width:42px;
-    height:42px;
-    margin:0 auto 15px;
-    border:4px solid #E7E7E5;
-    border-top-color:var(--dorado);
+    width:18px;
+    height:18px;
+
+    display:inline-block;
+
+    border:3px solid rgba(255,255,255,.35);
+
+    border-top-color:#fff;
+
     border-radius:50%;
-    animation:girar .75s linear infinite;
+
+    vertical-align:middle;
+
+    animation:giro .7s linear infinite;
 }
 
-@keyframes girar{
-    to{transform:rotate(360deg);}
+.spinner-oscuro{
+    border-color:rgba(36,39,50,.2);
+
+    border-top-color:var(--azul-institucional);
 }
 
-/* =========================================================
-   PANEL ESTADOS
-========================================================= */
-
-.estado-actual{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:15px;
-    padding:15px;
-    background:#FAFAF9;
-    border:1px solid var(--gris-claro);
-    border-radius:7px;
-}
-
-.transicion-lista{
-    display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:10px;
-    margin-top:15px;
-}
-
-.transicion-opcion{
-    padding:13px;
-    border:1px solid var(--gris-claro);
-    border-radius:7px;
-    background:#fff;
-    cursor:pointer;
-    transition:.2s ease;
-}
-
-.transicion-opcion:hover{
-    border-color:var(--dorado);
-    background:#FAF8F0;
-}
-
-.transicion-opcion.seleccionada{
-    border-color:var(--dorado);
-    background:#F5F1E4;
-    box-shadow:0 0 0 2px rgba(181,153,58,.12);
-}
-
-.transicion-opcion strong{
-    display:block;
-    margin-bottom:4px;
-    color:var(--azul-institucional);
-}
-
-.transicion-opcion small{
-    color:var(--gris-medio);
-}
-
-/* =========================================================
-   PDF / DESPACHO
-========================================================= */
-
-.pdf-despacho-box{
-    margin-top:18px;
-    padding:18px;
-    background:#F5F1E4;
-    border:1px solid #E5DDBD;
-    border-left:4px solid var(--dorado);
-    border-radius:7px;
-}
-
-.pdf-despacho-box h3{
-    margin-bottom:7px;
-    font-size:16px;
-}
-
-.pdf-despacho-box p{
-    margin-bottom:12px;
-    color:var(--gris-institucional);
-    font-size:13px;
-}
-
-.pdf-seleccionado{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:10px;
-    padding:10px 12px;
-    margin-top:10px;
-    background:#fff;
-    border:1px solid var(--gris-claro);
-    border-radius:6px;
-}
-
-.pdf-seleccionado strong{
-    word-break:break-word;
-}
-
-.pdf-link{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    min-height:34px;
-    padding:7px 12px;
-    border-radius:5px;
-    background:var(--azul-institucional);
-    color:#fff;
-    text-decoration:none;
-    font-size:12px;
-    font-weight:bold;
-}
-
-.pdf-link:hover{
-    background:#303441;
-    color:#fff;
-}
-
-/* =========================================================
-   DETALLE
-========================================================= */
-
-.detalle-cabecera{
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-start;
-    gap:20px;
-    margin-bottom:20px;
-}
-
-.detalle-codigo{
-    color:var(--azul-institucional);
-    font-size:24px;
-    font-weight:bold;
-}
-
-.detalle-cite{
-    margin-top:4px;
-    color:var(--gris-institucional);
-    font-size:13px;
-    word-break:break-word;
-}
-
-.historial-item{
-    position:relative;
-    padding:14px 14px 14px 22px;
-    margin-bottom:10px;
-    border:1px solid var(--gris-claro);
-    border-radius:7px;
-    background:#FAFAF9;
-}
-
-.historial-item::before{
-    content:"";
-    position:absolute;
-    left:8px;
-    top:17px;
-    width:7px;
-    height:7px;
-    border-radius:50%;
-    background:var(--dorado);
-}
-
-.historial-item strong{
-    color:var(--azul-institucional);
-}
-
-.historial-meta{
-    margin-top:4px;
-    color:var(--gris-medio);
-    font-size:11px;
-}
-
-/* =========================================================
-   QR
-========================================================= */
-
-.qr-area{
-    display:grid;
-    grid-template-columns:220px 1fr;
-    gap:25px;
-    align-items:center;
-}
-
-.qr-box{
-    width:210px;
-    min-height:210px;
-    padding:12px;
-    background:#fff;
-    border:1px solid var(--gris-borde);
-    border-radius:8px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-
-.qr-box img,
-.qr-box canvas{
-    max-width:100%;
-    height:auto;
-}
-
-/* =========================================================
-   ACCESO RESTRINGIDO
-========================================================= */
-
-.acceso-restringido-overlay{
-    position:fixed;
-    inset:0;
-    z-index:99999;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:24px;
-    background:rgba(15,23,42,.72);
-    backdrop-filter:blur(5px);
-    -webkit-backdrop-filter:blur(5px);
-}
-
-.acceso-restringido-card{
-    width:min(460px,100%);
-    padding:36px 30px;
-    text-align:center;
-    background:#ffffff;
-    border-radius:20px;
-    box-shadow:0 20px 60px rgba(0,0,0,.25);
-    animation:accesoRestringidoEntrada .25s ease-out;
-}
-
-.acceso-restringido-icono{
-    width:76px;
-    height:76px;
-    margin:0 auto 20px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:50%;
-    background:#fef3c7;
-    color:#92400e;
-    font-size:36px;
-}
-
-.acceso-restringido-titulo{
-    margin:0 0 12px;
-    color:#1e293b;
-    font-size:24px;
-    font-weight:700;
-}
-
-.acceso-restringido-mensaje{
-    margin:0 auto 10px;
-    max-width:380px;
-    color:#475569;
-    font-size:15px;
-    line-height:1.6;
-}
-
-.acceso-restringido-contacto{
-    margin:0 auto 26px;
-    max-width:380px;
-    color:#64748b;
-    font-size:14px;
-    line-height:1.5;
-}
-
-.acceso-restringido-botones{
-    display:flex;
-    gap:10px;
-    justify-content:center;
-    flex-wrap:wrap;
-}
-
-.acceso-restringido-btn{
-    border:0;
-    padding:11px 20px;
-    border-radius:10px;
-    cursor:pointer;
-    font-size:14px;
-    font-weight:600;
-    transition:transform .15s ease,box-shadow .15s ease;
-}
-
-.acceso-restringido-btn:hover{
-    transform:translateY(-1px);
-}
-
-.acceso-restringido-btn-principal{
-    background:#2563eb;
-    color:#ffffff;
-    box-shadow:0 4px 12px rgba(37,99,235,.25);
-}
-
-.acceso-restringido-btn-secundario{
-    background:#f1f5f9;
-    color:#334155;
-}
-
-@keyframes accesoRestringidoEntrada{
-    from{
-        opacity:0;
-        transform:scale(.96) translateY(10px);
-    }
+@keyframes giro{
     to{
-        opacity:1;
-        transform:scale(1) translateY(0);
+        transform:rotate(360deg);
     }
 }
 
 /* =========================================================
-   FOOTER
+   VISTAS
+========================================================= */
+
+.vista{
+    display:none;
+}
+
+.vista.activa{
+    display:block;
+}
+
+/* =========================================================
+   VACÍO
+========================================================= */
+
+.vacio{
+    padding:18px;
+
+    color:var(--gris-institucional);
+
+    background:#FAFAF9;
+
+    border:1px dashed var(--gris-borde);
+
+    border-radius:5px;
+
+    font-size:13px;
+
+    text-align:center;
+}
+
+/* =========================================================
+   PIE
 ========================================================= */
 
 footer{
     text-align:center;
+
     color:var(--gris-institucional);
+
     padding:10px 20px 24px;
+
     font-size:12px;
 }
 
 .linea-institucional{
     display:flex;
+
     width:min(260px,70%);
+
     height:3px;
+
     margin:0 auto 12px;
+
     border-radius:2px;
+
     overflow:hidden;
 }
 
@@ -1378,21 +1597,161 @@ footer{
 }
 
 /* =========================================================
-   VACÍO
+   ACCESO RESTRINGIDO
 ========================================================= */
 
-.vacio{
-    padding:14px;
-    color:var(--gris-institucional);
-    background:#FAFAF9;
-    border:1px dashed var(--gris-borde);
-    border-radius:5px;
-    font-size:13px;
+.acceso-restringido-overlay{
+    position:fixed;
+
+    inset:0;
+
+    z-index:99999;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:24px;
+
+    background:rgba(15,23,42,.72);
+
+    backdrop-filter:blur(5px);
+
+    -webkit-backdrop-filter:blur(5px);
 }
 
-.cargando{
-    opacity:.65;
-    pointer-events:none;
+.acceso-restringido-card{
+    width:min(460px,100%);
+
+    padding:36px 30px;
+
+    text-align:center;
+
+    background:#ffffff;
+
+    border-radius:20px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.25);
+
+    animation:
+        accesoRestringidoEntrada
+        .25s
+        ease-out;
+}
+
+.acceso-restringido-icono{
+    width:76px;
+    height:76px;
+
+    margin:0 auto 20px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:#fef3c7;
+
+    color:#92400e;
+
+    font-size:36px;
+}
+
+.acceso-restringido-titulo{
+    margin:0 0 12px;
+
+    color:#1e293b;
+
+    font-size:24px;
+
+    font-weight:700;
+}
+
+.acceso-restringido-mensaje{
+    margin:0 auto 10px;
+
+    max-width:380px;
+
+    color:#475569;
+
+    font-size:15px;
+
+    line-height:1.6;
+}
+
+.acceso-restringido-contacto{
+    margin:0 auto 26px;
+
+    max-width:380px;
+
+    color:#64748b;
+
+    font-size:14px;
+
+    line-height:1.5;
+}
+
+.acceso-restringido-botones{
+    display:flex;
+
+    gap:10px;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+}
+
+.acceso-restringido-btn{
+    border:0;
+
+    padding:11px 20px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    transition:
+        transform .15s ease,
+        box-shadow .15s ease;
+}
+
+.acceso-restringido-btn:hover{
+    transform:translateY(-1px);
+}
+
+.acceso-restringido-btn-principal{
+    background:#2563eb;
+
+    color:#ffffff;
+
+    box-shadow:
+        0 4px 12px rgba(37,99,235,.25);
+}
+
+.acceso-restringido-btn-secundario{
+    background:#f1f5f9;
+
+    color:#334155;
+}
+
+@keyframes accesoRestringidoEntrada{
+    from{
+        opacity:0;
+        transform:scale(.96) translateY(10px);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1) translateY(0);
+    }
 }
 
 /* =========================================================
@@ -1419,8 +1778,11 @@ footer{
 
     .encabezado-contenido{
         width:100%;
+
         flex-direction:column;
+
         align-items:flex-start;
+
         gap:16px;
     }
 
@@ -1437,23 +1799,27 @@ footer{
     }
 
     .encabezado p{
-        font-size:13px;
+        font-size:12px;
     }
 
     .conexion{
         align-self:stretch;
+
         width:100%;
+
         text-align:center;
     }
 
     .contenedor{
         width:94%;
+
         margin-top:20px;
         margin-bottom:24px;
     }
 
     .tarjeta{
         padding:18px;
+
         margin-bottom:16px;
     }
 
@@ -1469,6 +1835,7 @@ footer{
 
     .indicadores{
         grid-template-columns:1fr 1fr;
+
         gap:10px;
     }
 
@@ -1490,8 +1857,11 @@ footer{
 
     .usuario-menu{
         margin-left:0;
+
         justify-content:center;
+
         width:100%;
+
         padding-top:5px;
     }
 
@@ -1505,33 +1875,10 @@ footer{
 
     .titulo-seccion{
         align-items:flex-start;
+
         flex-direction:column;
+
         gap:12px;
-    }
-
-    .detalle-cabecera{
-        flex-direction:column;
-    }
-
-    .estado-actual{
-        align-items:flex-start;
-        flex-direction:column;
-    }
-
-    .transicion-lista{
-        grid-template-columns:1fr;
-    }
-
-    .qr-area{
-        grid-template-columns:1fr;
-        justify-items:center;
-        text-align:center;
-    }
-
-    .tabla-contenedor{
-        margin-left:-1px;
-        margin-right:-1px;
-        width:calc(100% + 2px);
     }
 
     .modal{
@@ -1539,7 +1886,8 @@ footer{
     }
 
     .modal-contenido{
-        max-height:95vh;
+        max-height:94vh;
+
         padding:18px;
     }
 
@@ -1551,9 +1899,33 @@ footer{
         width:100%;
     }
 
-    .pdf-seleccionado{
-        align-items:flex-start;
-        flex-direction:column;
+    .qr-resultado-card,
+    .qr-indice-card{
+        padding:18px;
+    }
+
+    .qr-ubicacion-principal{
+        font-size:24px;
+    }
+
+    .qr-ubicacion-detalle{
+        grid-template-columns:1fr;
+    }
+
+    .tabla-contenedor{
+        margin-left:-1px;
+
+        margin-right:-1px;
+
+        width:calc(100% + 2px);
+    }
+
+    .alerta-card{
+        padding:13px;
+    }
+
+    .login-tarjeta{
+        padding:22px;
     }
 }
 
@@ -1590,15 +1962,15 @@ footer{
     }
 
     .encabezado p{
-        font-size:12px;
+        font-size:11px;
     }
 
     button{
         font-size:14px;
     }
 
-    .detalle-codigo{
-        font-size:20px;
+    .login-tarjeta{
+        margin:10px auto;
     }
 }
 
@@ -1622,12 +1994,15 @@ footer{
 
     .contenedor{
         width:100%;
+
         margin:0;
     }
 
     .tarjeta{
         border:0;
+
         box-shadow:none;
+
         page-break-inside:avoid;
     }
 
@@ -1637,7 +2012,9 @@ footer{
 
     th{
         color:#000;
+
         background:#eee;
+
         border-bottom:2px solid #000;
     }
 
@@ -1654,38 +2031,45 @@ footer{
      LOGIN
 ======================================================= -->
 
-<section id="vistaLogin">
+<section id="vistaLogin" class="vista activa">
 
-    <div class="tarjeta login-tarjeta">
+    <div class="login-tarjeta">
 
         <div class="login-logo">
 
-            <div class="simbolo">SSF</div>
+            <div class="simbolo">
+                SSF
+            </div>
 
             <h1>SSF-DV</h1>
 
             <p>
-                Sistema de Seguimiento de Firmas -
+                Sistema de Seguimiento de Firmas<br>
                 Digitalización y Verificación
             </p>
 
         </div>
 
+        <div id="loginAlerta"></div>
+
         <form id="formLogin">
 
-            <label class="required" for="loginUsuario">
+            <label for="loginUsuario">
                 Usuario
+                <span class="obligatorio">*</span>
             </label>
 
             <input
                 id="loginUsuario"
+                type="text"
                 autocomplete="username"
-                maxlength="20"
                 required
-            >
+                maxlength="20"
+                placeholder="Ingrese su usuario">
 
-            <label class="required" for="loginClave">
+            <label for="loginClave">
                 Contraseña
+                <span class="obligatorio">*</span>
             </label>
 
             <input
@@ -1693,32 +2077,27 @@ footer{
                 type="password"
                 autocomplete="current-password"
                 required
-            >
+                placeholder="Ingrese su contraseña">
 
-            <div class="acciones">
+            <div style="margin-top:20px">
 
                 <button
                     id="btnLogin"
                     type="submit"
-                    class="full"
-                >
-                    Ingresar al sistema
+                    style="width:100%">
+                    Ingresar
                 </button>
 
             </div>
 
         </form>
 
-        <div class="login-seguridad">
-            <strong>Acceso institucional.</strong>
-            Sus credenciales determinan las operaciones que puede realizar
-            dentro del sistema.
-        </div>
-
         <div
-            id="loginMensaje"
-            class="mensaje hidden"
-        ></div>
+            id="estadoConexionLogin"
+            class="muted texto-centro"
+            style="margin-top:15px;font-size:12px">
+            Verificando conexión...
+        </div>
 
     </div>
 
@@ -1729,7 +2108,7 @@ footer{
      APLICACIÓN
 ======================================================= -->
 
-<section id="vistaApp" class="hidden">
+<section id="vistaApp" class="vista">
 
     <header class="encabezado">
 
@@ -1739,9 +2118,11 @@ footer{
 
                 <div class="marca-linea"></div>
 
-                <div class="marca-texto">
+                <div>
 
-                    <h1>SSF-DV</h1>
+                    <h1>
+                        SSF-DV
+                    </h1>
 
                     <p>
                         Sistema de Seguimiento de Firmas -
@@ -1754,17 +2135,18 @@ footer{
 
             <div
                 id="estadoConexion"
-                class="conexion cargando"
-            >
+                class="conexion cargando">
                 Conectando...
             </div>
 
         </div>
 
         <div class="bandera-bolivia">
+
             <span class="bandera-rojo"></span>
             <span class="bandera-amarillo"></span>
             <span class="bandera-verde"></span>
+
         </div>
 
     </header>
@@ -1772,43 +2154,35 @@ footer{
 
     <main class="contenedor">
 
-        <!-- =================================================
+        <!-- ===============================================
              MENÚ
-        ================================================== -->
+        ================================================ -->
 
-        <nav class="menu">
+        <nav class="menu no-print">
 
             <button
-                type="button"
-                data-vista="inicio"
-                class="menu-btn activo"
-            >
+                id="menuInicio"
+                class="activo"
+                onclick="mostrarVista('inicio')">
                 Inicio
             </button>
 
             <button
-                type="button"
-                data-vista="alta"
-                class="menu-btn"
                 id="menuAlta"
-            >
+                onclick="mostrarVista('alta')">
                 Registrar documento
             </button>
 
             <button
-                type="button"
-                data-vista="buscar"
-                class="menu-btn"
-            >
-                Buscar documentos
+                id="menuBuscar"
+                onclick="mostrarVista('buscar')">
+                Buscar
             </button>
 
             <button
-                type="button"
-                data-vista="usuarios"
-                class="menu-btn"
                 id="menuUsuarios"
-            >
+                class="hidden"
+                onclick="mostrarVista('usuarios')">
                 Usuarios
             </button>
 
@@ -1816,28 +2190,31 @@ footer{
 
                 <div
                     id="usuarioAvatar"
-                    class="usuario-avatar"
-                >
+                    class="usuario-avatar">
                     U
                 </div>
 
-                <span id="usuarioActual">
-                    Usuario
-                </span>
+                <div>
+                    <strong id="nombreUsuario">
+                        Usuario
+                    </strong>
+
+                    <br>
+
+                    <span id="rolUsuario">
+                        —
+                    </span>
+                </div>
 
                 <button
-                    type="button"
                     class="small alt"
-                    id="btnCambiarClave"
-                >
-                    Mi contraseña
+                    onclick="abrirModal('modalClave')">
+                    Cambiar clave
                 </button>
 
                 <button
-                    type="button"
                     class="small danger"
-                    id="btnLogout"
-                >
+                    onclick="cerrarSesion()">
                     Salir
                 </button>
 
@@ -1846,59 +2223,31 @@ footer{
         </nav>
 
 
-        <!-- =================================================
-             VISTA INICIO
-        ================================================== -->
+        <!-- ===============================================
+             INICIO
+        ================================================ -->
 
         <section
             id="vistaInicio"
-            class="vista"
-        >
+            class="vista activa">
 
             <div
-                id="alertaPrimerAcceso"
-                class="alerta-card alerta-warning hidden"
-            >
-
-                <div class="icono">!</div>
-
-                <div class="contenido">
-
-                    <h3>Debe completar su primer acceso</h3>
-
-                    <p>
-                        Antes de continuar debe reemplazar el usuario
-                        y contraseña temporales proporcionados por el
-                        administrador.
-                    </p>
-
-                    <div class="acciones">
-                        <button
-                            type="button"
-                            id="btnPrimerAcceso"
-                            class="warning"
-                        >
-                            Configurar mi acceso
-                        </button>
-                    </div>
-
-                </div>
-
+                id="alertasInicio">
             </div>
-
 
             <div class="indicadores">
 
-                <div class="indicador">
+                <div
+                    class="indicador azul"
+                    onclick="mostrarVista('buscar')">
 
                     <div class="indicador-label">
-                        Total documentos
+                        Documentos
                     </div>
 
                     <div
-                        id="indTotal"
-                        class="indicador-numero"
-                    >
+                        id="indicadorTotal"
+                        class="indicador-numero">
                         0
                     </div>
 
@@ -1909,16 +2258,17 @@ footer{
                 </div>
 
 
-                <div class="indicador verde">
+                <div
+                    class="indicador verde"
+                    onclick="buscarPorSemaforo('VERDE')">
 
                     <div class="indicador-label">
                         En plazo
                     </div>
 
                     <div
-                        id="indVerde"
-                        class="indicador-numero"
-                    >
+                        id="indicadorVerde"
+                        class="indicador-numero">
                         0
                     </div>
 
@@ -1929,16 +2279,17 @@ footer{
                 </div>
 
 
-                <div class="indicador amarillo">
+                <div
+                    class="indicador amarillo"
+                    onclick="buscarPorSemaforo('AMARILLO')">
 
                     <div class="indicador-label">
                         Atención
                     </div>
 
                     <div
-                        id="indAmarillo"
-                        class="indicador-numero"
-                    >
+                        id="indicadorAmarillo"
+                        class="indicador-numero">
                         0
                     </div>
 
@@ -1949,16 +2300,17 @@ footer{
                 </div>
 
 
-                <div class="indicador rojo">
+                <div
+                    class="indicador rojo"
+                    onclick="buscarPorSemaforo('ROJO')">
 
                     <div class="indicador-label">
                         Vencidos
                     </div>
 
                     <div
-                        id="indRojo"
-                        class="indicador-numero"
-                    >
+                        id="indicadorRojo"
+                        class="indicador-numero">
                         0
                     </div>
 
@@ -1973,125 +2325,106 @@ footer{
 
             <div class="tarjeta">
 
-                <div class="titulo-seccion">
+                <div class="cabecera-tarjeta">
 
-                    <div>
+                    <span class="etiqueta-institucional">
+                        SSF-DV
+                    </span>
 
-                        <span class="etiqueta-institucional">
-                            PANEL PRINCIPAL
-                        </span>
+                    <div class="titulo-seccion">
 
                         <h2>
-                            Seguimiento documental
+                            Panel de seguimiento
                         </h2>
+
+                        <button
+                            class="small"
+                            onclick="cargarDashboard()">
+                            Actualizar
+                        </button>
 
                     </div>
 
-                    <button
-                        type="button"
-                        id="btnActualizarInicio"
-                        class="alt"
-                    >
-                        Actualizar
-                    </button>
+                    <div class="separador-dorado"></div>
 
                 </div>
 
-                <div class="separador-dorado"></div>
 
-                <p class="muted">
-                    Desde este panel puede consultar el estado de los
-                    documentos registrados y acceder rápidamente a las
-                    principales funciones del sistema.
-                </p>
+                <div id="panelInicio">
 
-            </div>
+                    <div class="alerta-card alerta-info">
 
+                        <div class="alerta-icono">
+                            ℹ
+                        </div>
 
-            <div class="tarjeta">
+                        <div class="alerta-contenido">
 
-                <div class="titulo-seccion">
+                            <h4>
+                                Bienvenido al SSF-DV
+                            </h4>
 
-                    <div>
+                            <p>
+                                Desde este panel puede registrar documentos,
+                                consultar su seguimiento, controlar estados,
+                                cargar el PDF al momento del despacho y
+                                verificar la trazabilidad documental.
+                            </p>
 
-                        <span class="etiqueta-institucional">
-                            DOCUMENTOS RECIENTES
-                        </span>
-
-                        <h2>
-                            Últimos registros
-                        </h2>
+                        </div>
 
                     </div>
 
-                    <button
-                        type="button"
-                        id="btnVerTodos"
-                        class="small"
-                    >
-                        Ver todos
-                    </button>
-
                 </div>
-
-                <div class="separador-dorado"></div>
-
-                <div
-                    id="tablaRecientes"
-                    class="tabla-contenedor"
-                ></div>
 
             </div>
 
         </section>
 
 
-        <!-- =================================================
-             VISTA ALTA
-        ================================================== -->
+        <!-- ===============================================
+             ALTA
+        ================================================ -->
 
         <section
             id="vistaAlta"
-            class="vista hidden"
-        >
+            class="vista">
 
             <div class="tarjeta">
 
                 <div class="cabecera-tarjeta">
 
                     <span class="etiqueta-institucional">
-                        NUEVO REGISTRO
+                        REGISTRO DOCUMENTAL
                     </span>
 
                     <h2>
-                        Registrar documento
+                        Registrar nuevo documento
                     </h2>
 
                     <div class="separador-dorado"></div>
-
-                    <p class="muted">
-                        Registre el documento utilizando los catálogos
-                        institucionales. El sistema generará automáticamente
-                        el identificador y Cite.
-                    </p>
 
                 </div>
 
 
                 <div class="alerta-card alerta-info">
 
-                    <div class="icono">i</div>
+                    <div class="alerta-icono">
+                        ℹ
+                    </div>
 
-                    <div class="contenido">
+                    <div class="alerta-contenido">
 
-                        <h3>
+                        <h4>
                             Registro centralizado
-                        </h3>
+                        </h4>
 
                         <p>
-                            Los documentos se almacenan en
-                            <strong>R_Principal</strong>, que constituye
-                            la fuente principal de información del sistema.
+                            El documento será registrado únicamente en
+                            <strong>R_Principal</strong>.
+                            El sistema generará automáticamente el
+                            identificador, Cite, ubicación digital y
+                            seguimiento de estados.
                         </p>
 
                     </div>
@@ -2105,30 +2438,29 @@ footer{
 
                         <div>
 
-                            <label class="required">
+                            <label for="altaGestion">
                                 Gestión
+                                <span class="obligatorio">*</span>
                             </label>
 
                             <input
                                 id="altaGestion"
                                 type="number"
-                                readonly
-                                required
-                            >
+                                required>
 
                         </div>
 
 
                         <div>
 
-                            <label class="required">
+                            <label for="altaDependencia">
                                 Dependencia
+                                <span class="obligatorio">*</span>
                             </label>
 
                             <select
                                 id="altaDependencia"
-                                required
-                            >
+                                required>
                                 <option value="">
                                     Seleccione...
                                 </option>
@@ -2139,16 +2471,17 @@ footer{
 
                         <div>
 
-                            <label class="required">
+                            <label for="altaUnidad">
                                 Unidad
+                                <span class="obligatorio">*</span>
                             </label>
 
                             <select
                                 id="altaUnidad"
                                 required
-                            >
+                                disabled>
                                 <option value="">
-                                    Seleccione...
+                                    Seleccione dependencia primero...
                                 </option>
                             </select>
 
@@ -2157,14 +2490,14 @@ footer{
 
                         <div>
 
-                            <label class="required">
+                            <label for="altaTipo">
                                 Tipo documental
+                                <span class="obligatorio">*</span>
                             </label>
 
                             <select
                                 id="altaTipo"
-                                required
-                            >
+                                required>
                                 <option value="">
                                     Seleccione...
                                 </option>
@@ -2175,8 +2508,9 @@ footer{
 
                         <div>
 
-                            <label class="required">
+                            <label for="altaNumeroCite">
                                 Número de Cite
+                                <span class="obligatorio">*</span>
                             </label>
 
                             <input
@@ -2185,21 +2519,21 @@ footer{
                                 min="1"
                                 step="1"
                                 required
-                            >
+                                placeholder="Ej. 125">
 
                         </div>
 
 
                         <div>
 
-                            <label class="required">
+                            <label for="altaDestino">
                                 Destino
+                                <span class="obligatorio">*</span>
                             </label>
 
                             <select
                                 id="altaDestino"
-                                required
-                            >
+                                required>
                                 <option value="">
                                     Seleccione...
                                 </option>
@@ -2210,87 +2544,88 @@ footer{
 
                         <div>
 
-                            <label class="required">
-                                Destinatario
-                            </label>
-
-                            <input
-                                id="altaDestinatario"
-                                maxlength="200"
-                                required
-                            >
-
-                        </div>
-
-
-                        <div>
-
-                            <label class="required">
-                                Responsable
-                            </label>
-
-                            <input
-                                id="altaResponsable"
-                                maxlength="150"
-                                required
-                            >
-
-                        </div>
-
-
-                        <div>
-
-                            <label>
+                            <label for="altaRemitente">
                                 Remitente
+                                <span class="obligatorio">*</span>
                             </label>
 
                             <input
                                 id="altaRemitente"
-                                maxlength="200"
-                            >
+                                required
+                                maxlength="200">
 
                         </div>
 
 
-                        <div class="campo-ancho">
+                        <div>
 
-                            <label class="required">
-                                Asunto
+                            <label for="altaDestinatario">
+                                Destinatario
+                                <span class="obligatorio">*</span>
                             </label>
 
                             <input
-                                id="altaAsunto"
-                                maxlength="500"
+                                id="altaDestinatario"
                                 required
-                            >
+                                maxlength="200">
+
+                        </div>
+
+
+                        <div>
+
+                            <label for="altaResponsable">
+                                Responsable
+                                <span class="obligatorio">*</span>
+                            </label>
+
+                            <input
+                                id="altaResponsable"
+                                required
+                                maxlength="150">
 
                         </div>
 
 
                         <div class="campo-ancho">
 
-                            <label>
+                            <label for="altaAsunto">
+                                Asunto
+                                <span class="obligatorio">*</span>
+                            </label>
+
+                            <textarea
+                                id="altaAsunto"
+                                required
+                                maxlength="1000"
+                                placeholder="Describa brevemente el asunto del documento"></textarea>
+
+                        </div>
+
+
+                        <div class="campo-ancho">
+
+                            <label for="altaReferencia">
                                 Referencia
                             </label>
 
                             <textarea
                                 id="altaReferencia"
                                 maxlength="1000"
-                            ></textarea>
+                                placeholder="Referencia documental, antecedentes u otros datos relevantes"></textarea>
 
                         </div>
 
 
                         <div class="campo-ancho">
 
-                            <label>
+                            <label for="altaObservaciones">
                                 Observaciones
                             </label>
 
                             <textarea
                                 id="altaObservaciones"
-                                maxlength="2000"
-                            ></textarea>
+                                maxlength="1000"></textarea>
 
                         </div>
 
@@ -2298,41 +2633,25 @@ footer{
 
 
                     <div
-                        id="vistaCiteGenerado"
-                        class="alerta-card alerta-info hidden"
-                    >
-
-                        <div class="icono">✓</div>
-
-                        <div class="contenido">
-
-                            <h3>
-                                Cite generado
-                            </h3>
-
-                            <p
-                                id="citeGenerado"
-                            ></p>
-
-                        </div>
-
+                        id="altaAlerta"
+                        style="margin-top:15px">
                     </div>
 
 
-                    <div class="acciones">
+                    <div
+                        class="fila"
+                        style="margin-top:20px;justify-content:flex-end">
 
                         <button
                             type="button"
-                            id="btnLimpiarAlta"
                             class="alt"
-                        >
+                            onclick="limpiarAlta()">
                             Limpiar
                         </button>
 
                         <button
                             type="submit"
-                            id="btnGuardarAlta"
-                        >
+                            id="btnAlta">
                             Registrar documento
                         </button>
 
@@ -2345,14 +2664,13 @@ footer{
         </section>
 
 
-        <!-- =================================================
-             VISTA BÚSQUEDA
-        ================================================== -->
+        <!-- ===============================================
+             BÚSQUEDA
+        ================================================ -->
 
         <section
             id="vistaBuscar"
-            class="vista hidden"
-        >
+            class="vista">
 
             <div class="tarjeta">
 
@@ -2381,9 +2699,13 @@ footer{
                                 ID Registro
                             </label>
 
-                            <input id="filtroID">
+                            <input
+                                id="buscarId"
+                                type="text"
+                                placeholder="REG-2026-00001">
 
                         </div>
+
 
                         <div>
 
@@ -2391,19 +2713,12 @@ footer{
                                 Cite
                             </label>
 
-                            <input id="filtroCite">
+                            <input
+                                id="buscarCite"
+                                type="text">
 
                         </div>
 
-                        <div>
-
-                            <label>
-                                Asunto
-                            </label>
-
-                            <input id="filtroAsunto">
-
-                        </div>
 
                         <div>
 
@@ -2411,9 +2726,25 @@ footer{
                                 Destinatario
                             </label>
 
-                            <input id="filtroDestinatario">
+                            <input
+                                id="buscarDestinatario"
+                                type="text">
 
                         </div>
+
+
+                        <div>
+
+                            <label>
+                                Asunto
+                            </label>
+
+                            <input
+                                id="buscarAsunto"
+                                type="text">
+
+                        </div>
+
 
                         <div>
 
@@ -2421,9 +2752,25 @@ footer{
                                 Remitente
                             </label>
 
-                            <input id="filtroRemitente">
+                            <input
+                                id="buscarRemitente"
+                                type="text">
 
                         </div>
+
+
+                        <div>
+
+                            <label>
+                                Referencia
+                            </label>
+
+                            <input
+                                id="buscarReferencia"
+                                type="text">
+
+                        </div>
+
 
                         <div>
 
@@ -2431,9 +2778,12 @@ footer{
                                 Responsable
                             </label>
 
-                            <input id="filtroResponsable">
+                            <input
+                                id="buscarResponsable"
+                                type="text">
 
                         </div>
+
 
                         <div>
 
@@ -2441,12 +2791,14 @@ footer{
                                 Gestión
                             </label>
 
-                            <input
-                                id="filtroGestion"
-                                type="number"
-                            >
+                            <select id="buscarGestion">
+                                <option value="">
+                                    Todas
+                                </option>
+                            </select>
 
                         </div>
+
 
                         <div>
 
@@ -2454,15 +2806,14 @@ footer{
                                 Tipo documental
                             </label>
 
-                            <select id="filtroTipo">
-
+                            <select id="buscarTipo">
                                 <option value="">
                                     Todos
                                 </option>
-
                             </select>
 
                         </div>
+
 
                         <div>
 
@@ -2470,15 +2821,14 @@ footer{
                                 Estado
                             </label>
 
-                            <select id="filtroEstado">
-
+                            <select id="buscarEstado">
                                 <option value="">
                                     Todos
                                 </option>
-
                             </select>
 
                         </div>
+
 
                         <div>
 
@@ -2486,12 +2836,10 @@ footer{
                                 Destino
                             </label>
 
-                            <select id="filtroDestino">
-
+                            <select id="buscarDestino">
                                 <option value="">
                                     Todos
                                 </option>
-
                             </select>
 
                         </div>
@@ -2499,14 +2847,15 @@ footer{
                     </div>
 
 
-                    <div class="acciones">
+                    <div
+                        class="fila"
+                        style="margin-top:20px;justify-content:flex-end">
 
                         <button
                             type="button"
-                            id="btnLimpiarBusqueda"
                             class="alt"
-                        >
-                            Limpiar filtros
+                            onclick="limpiarBusqueda()">
+                            Limpiar
                         </button>
 
                         <button type="submit">
@@ -2520,7 +2869,9 @@ footer{
             </div>
 
 
-            <div class="tarjeta">
+            <div
+                id="resultadoBusqueda"
+                class="tarjeta hidden">
 
                 <div class="titulo-seccion">
 
@@ -2536,25 +2887,64 @@ footer{
 
                     </div>
 
-                    <span
-                        id="totalResultados"
-                        class="badge gris"
-                    >
-                        0 registros
-                    </span>
+                    <strong
+                        id="totalResultados">
+                        0
+                    </strong>
 
                 </div>
 
                 <div class="separador-dorado"></div>
 
-                <div
-                    id="tablaResultados"
-                    class="tabla-contenedor"
-                >
 
-                    <div class="vacio">
-                        Realice una búsqueda para consultar documentos.
-                    </div>
+                <div class="tabla-contenedor">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    ID
+                                </th>
+
+                                <th>
+                                    Cite
+                                </th>
+
+                                <th>
+                                    Tipo
+                                </th>
+
+                                <th>
+                                    Destino
+                                </th>
+
+                                <th>
+                                    Estado
+                                </th>
+
+                                <th>
+                                    Semáforo
+                                </th>
+
+                                <th>
+                                    Tiempo
+                                </th>
+
+                                <th>
+                                    Acciones
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="tablaResultados">
+                        </tbody>
+
+                    </table>
 
                 </div>
 
@@ -2563,46 +2953,247 @@ footer{
         </section>
 
 
-        <!-- =================================================
-             VISTA USUARIOS
-        ================================================== -->
+        <!-- ===============================================
+             USUARIOS
+        ================================================ -->
 
         <section
             id="vistaUsuarios"
-            class="vista hidden"
-        >
+            class="vista">
 
             <div class="tarjeta">
 
-                <div class="titulo-seccion">
+                <div class="cabecera-tarjeta">
 
-                    <div>
+                    <span class="etiqueta-institucional">
+                        ADMINISTRACIÓN
+                    </span>
 
-                        <span class="etiqueta-institucional">
-                            ADMINISTRACIÓN
-                        </span>
+                    <div class="titulo-seccion">
 
                         <h2>
-                            Gestión de usuarios
+                            Administración de usuarios
                         </h2>
+
+                        <button
+                            class="small"
+                            onclick="cargarUsuarios()">
+                            Actualizar
+                        </button>
 
                     </div>
 
-                    <button
-                        type="button"
-                        id="btnNuevoUsuario"
-                    >
-                        Crear usuario
-                    </button>
+                    <div class="separador-dorado"></div>
 
                 </div>
 
-                <div class="separador-dorado"></div>
 
-                <div
-                    id="tablaUsuarios"
-                    class="tabla-contenedor"
-                ></div>
+                <div class="alerta-card alerta-advertencia">
+
+                    <div class="alerta-icono">
+                        !
+                    </div>
+
+                    <div class="alerta-contenido">
+
+                        <h4>
+                            Administración restringida
+                        </h4>
+
+                        <p>
+                            Esta sección está disponible únicamente
+                            para usuarios con rol
+                            <strong>Administrador</strong>.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="tabla-contenedor">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    ID
+                                </th>
+
+                                <th>
+                                    Usuario
+                                </th>
+
+                                <th>
+                                    Nombre
+                                </th>
+
+                                <th>
+                                    Dependencia
+                                </th>
+
+                                <th>
+                                    Rol
+                                </th>
+
+                                <th>
+                                    Estado
+                                </th>
+
+                                <th>
+                                    Acciones
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="tablaUsuarios">
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+            <div class="tarjeta">
+
+                <div class="cabecera-tarjeta">
+
+                    <span class="etiqueta-institucional">
+                        NUEVO USUARIO
+                    </span>
+
+                    <h2>
+                        Crear usuario
+                    </h2>
+
+                    <div class="separador-dorado"></div>
+
+                </div>
+
+
+                <form id="formCrearUsuario">
+
+                    <div class="grid">
+
+                        <div>
+
+                            <label>
+                                Usuario temporal
+                            </label>
+
+                            <input
+                                id="usuarioNuevo"
+                                required
+                                minlength="4"
+                                maxlength="20"
+                                pattern="[A-Za-z0-9._-]+">
+
+                        </div>
+
+
+                        <div>
+
+                            <label>
+                                Nombre completo
+                            </label>
+
+                            <input
+                                id="usuarioNombre"
+                                required>
+
+                        </div>
+
+
+                        <div>
+
+                            <label>
+                                Dependencia
+                            </label>
+
+                            <input
+                                id="usuarioDependencia">
+
+                        </div>
+
+
+                        <div>
+
+                            <label>
+                                Rol
+                            </label>
+
+                            <select id="usuarioRol" required>
+
+                                <option value="">
+                                    Seleccione...
+                                </option>
+
+                                <option value="Administrador">
+                                    Administrador
+                                </option>
+
+                                <option value="Registro">
+                                    Registro
+                                </option>
+
+                                <option value="Revisor">
+                                    Revisor
+                                </option>
+
+                                <option value="Consulta">
+                                    Consulta
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="campo-ancho">
+
+                            <label>
+                                Contraseña temporal
+                            </label>
+
+                            <input
+                                id="usuarioClave"
+                                type="password"
+                                required>
+
+                            <span class="help">
+                                El usuario deberá cambiar usuario y contraseña
+                                en su primer acceso.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="usuarioAlerta"
+                        style="margin-top:15px">
+                    </div>
+
+
+                    <div
+                        class="fila"
+                        style="justify-content:flex-end;margin-top:18px">
+
+                        <button type="submit">
+                            Crear usuario
+                        </button>
+
+                    </div>
+
+                </form>
 
             </div>
 
@@ -2614,13 +3205,21 @@ footer{
     <footer>
 
         <div class="linea-institucional">
+
             <span class="bandera-rojo"></span>
             <span class="bandera-amarillo"></span>
             <span class="bandera-verde"></span>
+
         </div>
 
-        SSF-DV — Sistema de Seguimiento de Firmas -
+        SSF-DV —
+        Sistema de Seguimiento de Firmas -
         Digitalización y Verificación
+
+        <br>
+
+        Gestión:
+        <span id="footerGestion">—</span>
 
     </footer>
 
@@ -2628,15 +3227,12 @@ footer{
 
 
 <!-- =======================================================
-     MODAL PRIMER ACCESO
+     MODAL — PRIMER ACCESO
 ======================================================= -->
 
 <div
     id="modalPrimerAcceso"
-    class="modal hidden"
-    role="dialog"
-    aria-modal="true"
->
+    class="modal hidden">
 
     <div class="modal-contenido modal-pequeno">
 
@@ -2649,35 +3245,29 @@ footer{
                 </span>
 
                 <h2>
-                    Configurar primer acceso
+                    Primer acceso
                 </h2>
 
             </div>
 
-            <button
-                type="button"
-                class="modal-cerrar"
-                data-cerrar-modal="modalPrimerAcceso"
-            >
-                ×
-            </button>
-
         </div>
 
 
-        <div class="alerta-card alerta-warning">
+        <div class="alerta-card alerta-advertencia">
 
-            <div class="icono">!</div>
+            <div class="alerta-icono">
+                !
+            </div>
 
-            <div class="contenido">
+            <div class="alerta-contenido">
 
-                <h3>
-                    Cambio obligatorio
-                </h3>
+                <h4>
+                    Debe actualizar sus credenciales
+                </h4>
 
                 <p>
-                    Reemplace el usuario y contraseña temporales antes
-                    de utilizar el resto del sistema.
+                    Por seguridad, el usuario y contraseña temporales
+                    deben ser reemplazados antes de continuar.
                 </p>
 
             </div>
@@ -2687,53 +3277,41 @@ footer{
 
         <form id="formPrimerAcceso">
 
-            <label class="required">
+            <label>
                 Nuevo usuario
             </label>
 
             <input
                 id="primerUsuario"
+                required
                 minlength="4"
                 maxlength="20"
-                pattern="[a-zA-Z0-9._-]{4,20}"
-                required
-            >
+                pattern="[a-z0-9._-]+">
 
-            <div class="form-hint">
-                4 a 20 caracteres: letras, números, punto, guion o guion bajo.
-            </div>
-
-
-            <label class="required">
+            <label>
                 Nueva contraseña
             </label>
 
             <input
                 id="primerClave"
                 type="password"
-                minlength="8"
-                required
-            >
+                required>
 
-
-            <label class="required">
+            <label>
                 Confirmar contraseña
             </label>
 
             <input
                 id="primerClave2"
                 type="password"
-                minlength="8"
-                required
-            >
+                required>
+
+            <div id="primerAccesoAlerta"></div>
 
 
             <div class="modal-pie">
 
-                <button
-                    type="submit"
-                    class="success"
-                >
+                <button type="submit">
                     Guardar cambios
                 </button>
 
@@ -2747,15 +3325,317 @@ footer{
 
 
 <!-- =======================================================
-     MODAL CAMBIAR CLAVE
+     MODAL — DETALLE DOCUMENTO
+======================================================= -->
+
+<div
+    id="modalDetalle"
+    class="modal hidden">
+
+    <div class="modal-contenido modal-grande">
+
+        <div class="modal-cabecera">
+
+            <div>
+
+                <span class="etiqueta-institucional">
+                    DOCUMENTO
+                </span>
+
+                <h2 id="detalleTitulo">
+                    Detalle del documento
+                </h2>
+
+            </div>
+
+            <button
+                class="icon-btn"
+                onclick="cerrarModal('modalDetalle')">
+                ×
+            </button>
+
+        </div>
+
+
+        <div id="detalleContenido"></div>
+
+
+        <div class="modal-pie">
+
+            <button
+                class="alt"
+                onclick="cerrarModal('modalDetalle')">
+                Cerrar
+            </button>
+
+            <button
+                id="btnDetalleEstado"
+                onclick="abrirCambioEstado()">
+                Cambiar estado
+            </button>
+
+            <button
+                id="btnDetallePdf"
+                class="success hidden"
+                onclick="abrirCargaPdf()">
+                Cargar PDF para despacho
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =======================================================
+     MODAL — CAMBIO DE ESTADO
+======================================================= -->
+
+<div
+    id="modalEstado"
+    class="modal hidden">
+
+    <div class="modal-contenido modal-pequeno">
+
+        <div class="modal-cabecera">
+
+            <div>
+
+                <span class="etiqueta-institucional">
+                    SEGUIMIENTO
+                </span>
+
+                <h2>
+                    Cambiar estado
+                </h2>
+
+            </div>
+
+            <button
+                class="icon-btn"
+                onclick="cerrarModal('modalEstado')">
+                ×
+            </button>
+
+        </div>
+
+
+        <div
+            id="estadoActualInfo">
+        </div>
+
+
+        <form id="formEstado">
+
+            <label>
+                Nuevo estado
+            </label>
+
+            <select
+                id="nuevoEstado"
+                required>
+            </select>
+
+
+            <div id="campoDestino">
+
+                <label>
+                    Destino
+                </label>
+
+                <select id="nuevoDestino">
+                </select>
+
+                <span class="help">
+                    El destino solamente puede modificarse
+                    durante el reingreso.
+                </span>
+
+            </div>
+
+
+            <label>
+                Observaciones
+            </label>
+
+            <textarea
+                id="estadoObservaciones"
+                maxlength="1000"
+                placeholder="Ingrese observaciones si corresponde"></textarea>
+
+
+            <div
+                id="advertenciaCambioEstado"
+                style="margin-top:15px">
+            </div>
+
+
+            <div class="modal-pie">
+
+                <button
+                    type="button"
+                    class="alt"
+                    onclick="cerrarModal('modalEstado')">
+                    Cancelar
+                </button>
+
+                <button
+                    type="submit">
+                    Aplicar cambio
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- =======================================================
+     MODAL — PDF
+======================================================= -->
+
+<div
+    id="modalPdf"
+    class="modal hidden">
+
+    <div class="modal-contenido modal-pequeno">
+
+        <div class="modal-cabecera">
+
+            <div>
+
+                <span class="etiqueta-institucional">
+                    DIGITALIZACIÓN
+                </span>
+
+                <h2>
+                    Cargar PDF para despacho
+                </h2>
+
+            </div>
+
+            <button
+                class="icon-btn"
+                onclick="cerrarModal('modalPdf')">
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="alerta-card alerta-advertencia">
+
+            <div class="alerta-icono">
+                !
+            </div>
+
+            <div class="alerta-contenido">
+
+                <h4>
+                    El PDF se carga únicamente para el despacho
+                </h4>
+
+                <p>
+                    El sistema no permite cargar el PDF como una acción
+                    independiente. Esta operación forma parte del proceso
+                    de despacho.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div id="pdfInfoDocumento"></div>
+
+
+        <div
+            id="pdfDropzone"
+            class="pdf-dropzone">
+
+            <div class="pdf-dropzone-icon">
+                PDF
+            </div>
+
+            <strong>
+                Seleccione el documento PDF
+            </strong>
+
+            <p class="muted">
+                El límite de tamaño es definido por
+                <strong>PdfMaxMB</strong> en Configuracion.
+            </p>
+
+            <input
+                id="pdfArchivo"
+                type="file"
+                accept="application/pdf,.pdf">
+
+            <div
+                id="pdfNombre"
+                class="pdf-nombre">
+            </div>
+
+            <div
+                id="pdfTamano"
+                class="pdf-tamano">
+            </div>
+
+            <div
+                id="pdfProgreso"
+                class="pdf-progreso hidden">
+
+                <div
+                    id="pdfProgresoBarra"
+                    class="pdf-progreso-barra">
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div
+            id="pdfAlerta"
+            style="margin-top:15px">
+        </div>
+
+
+        <div class="modal-pie">
+
+            <button
+                type="button"
+                class="alt"
+                onclick="cerrarModal('modalPdf')">
+                Cancelar
+            </button>
+
+            <button
+                id="btnEnviarPdf"
+                class="success"
+                onclick="confirmarCargaPdf()"
+                disabled>
+                Cargar PDF y despachar
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =======================================================
+     MODAL — CAMBIAR CLAVE
 ======================================================= -->
 
 <div
     id="modalClave"
-    class="modal hidden"
-    role="dialog"
-    aria-modal="true"
->
+    class="modal hidden">
 
     <div class="modal-contenido modal-pequeno">
 
@@ -2766,10 +3646,8 @@ footer{
             </h2>
 
             <button
-                type="button"
-                class="modal-cerrar"
-                data-cerrar-modal="modalClave"
-            >
+                class="icon-btn"
+                onclick="cerrarModal('modalClave')">
                 ×
             </button>
 
@@ -2778,39 +3656,34 @@ footer{
 
         <form id="formClave">
 
-            <label class="required">
+            <label>
                 Contraseña actual
             </label>
 
             <input
                 id="claveActual"
                 type="password"
-                required
-            >
+                required>
 
-
-            <label class="required">
+            <label>
                 Nueva contraseña
             </label>
 
             <input
                 id="claveNueva"
                 type="password"
-                minlength="8"
-                required
-            >
+                required>
 
-
-            <label class="required">
+            <label>
                 Confirmar nueva contraseña
             </label>
 
             <input
                 id="claveNueva2"
                 type="password"
-                minlength="8"
-                required
-            >
+                required>
+
+            <div id="claveAlerta"></div>
 
 
             <div class="modal-pie">
@@ -2818,8 +3691,7 @@ footer{
                 <button
                     type="button"
                     class="alt"
-                    data-cerrar-modal="modalClave"
-                >
+                    onclick="cerrarModal('modalClave')">
                     Cancelar
                 </button>
 
@@ -2837,455 +3709,43 @@ footer{
 
 
 <!-- =======================================================
-     MODAL DETALLE
-======================================================= -->
-
-<div
-    id="modalDetalle"
-    class="modal hidden"
-    role="dialog"
-    aria-modal="true"
->
-
-    <div class="modal-contenido modal-grande">
-
-        <div class="modal-cabecera">
-
-            <div>
-
-                <span class="etiqueta-institucional">
-                    DETALLE DOCUMENTAL
-                </span>
-
-                <h2>
-                    Documento
-                </h2>
-
-            </div>
-
-            <button
-                type="button"
-                class="modal-cerrar"
-                data-cerrar-modal="modalDetalle"
-            >
-                ×
-            </button>
-
-        </div>
-
-
-        <div id="detalleContenido">
-
-            <div class="vacio">
-                Cargando información...
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- =======================================================
-     MODAL CAMBIO ESTADO
-======================================================= -->
-
-<div
-    id="modalEstado"
-    class="modal hidden"
-    role="dialog"
-    aria-modal="true"
->
-
-    <div class="modal-contenido">
-
-        <div class="modal-cabecera">
-
-            <div>
-
-                <span class="etiqueta-institucional">
-                    FLUJO DOCUMENTAL
-                </span>
-
-                <h2>
-                    Cambiar estado
-                </h2>
-
-            </div>
-
-            <button
-                type="button"
-                class="modal-cerrar"
-                data-cerrar-modal="modalEstado"
-            >
-                ×
-            </button>
-
-        </div>
-
-
-        <div id="estadoDocumentoActual"></div>
-
-
-        <label>
-            Nuevo estado
-        </label>
-
-        <div
-            id="opcionesEstado"
-            class="transicion-lista"
-        ></div>
-
-
-        <div
-            id="bloqueDestino"
-            class="hidden"
-        >
-
-            <label>
-                Nuevo destino
-            </label>
-
-            <select id="estadoDestino"></select>
-
-            <div class="form-hint">
-                El destino solamente puede modificarse durante un reingreso.
-            </div>
-
-        </div>
-
-
-        <label>
-            Observaciones
-        </label>
-
-        <textarea
-            id="estadoObservaciones"
-            placeholder="Ingrese una observación cuando corresponda..."
-        ></textarea>
-
-
-        <div
-            id="bloquePdfDespacho"
-            class="pdf-despacho-box hidden"
-        >
-
-            <h3>
-                PDF requerido para el despacho
-            </h3>
-
-            <p>
-                Este documento está pasando a
-                <strong>Despachado</strong>.
-                Antes de completar la operación debe seleccionar el PDF
-                correspondiente.
-            </p>
-
-            <p>
-                El límite máximo permitido es:
-                <strong id="pdfMaxTexto">--</strong>
-            </p>
-
-            <input
-                id="estadoPdf"
-                type="file"
-                accept="application/pdf,.pdf"
-            >
-
-            <div class="form-hint">
-                El archivo será validado nuevamente por el servidor.
-            </div>
-
-            <div
-                id="pdfSeleccionado"
-                class="pdf-seleccionado hidden"
-            ></div>
-
-        </div>
-
-
-        <div class="modal-pie">
-
-            <button
-                type="button"
-                class="alt"
-                data-cerrar-modal="modalEstado"
-            >
-                Cancelar
-            </button>
-
-            <button
-                type="button"
-                id="btnConfirmarEstado"
-            >
-                Confirmar cambio
-            </button>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- =======================================================
-     MODAL USUARIO
-======================================================= -->
-
-<div
-    id="modalUsuario"
-    class="modal hidden"
-    role="dialog"
-    aria-modal="true"
->
-
-    <div class="modal-contenido">
-
-        <div class="modal-cabecera">
-
-            <div>
-
-                <span class="etiqueta-institucional">
-                    ADMINISTRACIÓN
-                </span>
-
-                <h2>
-                    Crear usuario
-                </h2>
-
-            </div>
-
-            <button
-                type="button"
-                class="modal-cerrar"
-                data-cerrar-modal="modalUsuario"
-            >
-                ×
-            </button>
-
-        </div>
-
-
-        <form id="formUsuario">
-
-            <div class="grid-2">
-
-                <div>
-
-                    <label class="required">
-                        Usuario temporal
-                    </label>
-
-                    <input
-                        id="nuevoUsuario"
-                        minlength="4"
-                        maxlength="20"
-                        pattern="[a-zA-Z0-9._-]{4,20}"
-                        required
-                    >
-
-                </div>
-
-
-                <div>
-
-                    <label class="required">
-                        Rol
-                    </label>
-
-                    <select
-                        id="nuevoRol"
-                        required
-                    >
-
-                        <option value="">
-                            Seleccione...
-                        </option>
-
-                        <option value="Administrador">
-                            Administrador
-                        </option>
-
-                        <option value="Registro">
-                            Registro
-                        </option>
-
-                        <option value="Revisor">
-                            Revisor
-                        </option>
-
-                        <option value="Consulta">
-                            Consulta
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-                <div>
-
-                    <label class="required">
-                        Nombre completo
-                    </label>
-
-                    <input
-                        id="nuevoNombre"
-                        maxlength="150"
-                        required
-                    >
-
-                </div>
-
-
-                <div>
-
-                    <label>
-                        Dependencia
-                    </label>
-
-                    <input
-                        id="nuevoDependencia"
-                        maxlength="150"
-                    >
-
-                </div>
-
-
-                <div>
-
-                    <label class="required">
-                        Clave temporal
-                    </label>
-
-                    <input
-                        id="nuevoClave"
-                        type="password"
-                        minlength="8"
-                        required
-                    >
-
-                </div>
-
-
-                <div>
-
-                    <label class="required">
-                        Confirmar clave
-                    </label>
-
-                    <input
-                        id="nuevoClave2"
-                        type="password"
-                        minlength="8"
-                        required
-                    >
-
-                </div>
-
-            </div>
-
-
-            <div class="alerta-card alerta-info">
-
-                <div class="icono">i</div>
-
-                <div class="contenido">
-
-                    <h3>
-                        Primer acceso
-                    </h3>
-
-                    <p>
-                        El usuario creado deberá cambiar el usuario
-                        y contraseña temporales en su primer ingreso.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="modal-pie">
-
-                <button
-                    type="button"
-                    class="alt"
-                    data-cerrar-modal="modalUsuario"
-                >
-                    Cancelar
-                </button>
-
-                <button type="submit">
-                    Crear usuario
-                </button>
-
-            </div>
-
-        </form>
-
-    </div>
-
-</div>
-
-
-<!-- =======================================================
-     MODAL CONFIRMACIÓN
+     MODAL — CONFIRMACIÓN
 ======================================================= -->
 
 <div
     id="modalConfirmacion"
-    class="modal hidden"
-    role="dialog"
-    aria-modal="true"
->
+    class="modal hidden">
 
     <div class="modal-contenido modal-pequeno">
 
         <div class="modal-cabecera">
 
-            <h2 id="confirmacionTitulo">
+            <h2 id="confirmTitulo">
                 Confirmar operación
             </h2>
 
             <button
-                type="button"
-                class="modal-cerrar"
-                data-cerrar-modal="modalConfirmacion"
-            >
+                class="icon-btn"
+                onclick="cerrarModal('modalConfirmacion')">
                 ×
             </button>
 
         </div>
 
-        <div
-            id="confirmacionContenido"
-            class="alerta-card alerta-warning"
-        >
 
-            <div class="icono">!</div>
+        <div id="confirmContenido"></div>
 
-            <div class="contenido">
-                <p id="confirmacionMensaje"></p>
-            </div>
-
-        </div>
 
         <div class="modal-pie">
 
             <button
-                type="button"
                 class="alt"
-                data-cerrar-modal="modalConfirmacion"
-            >
+                onclick="cerrarModal('modalConfirmacion')">
                 Cancelar
             </button>
 
             <button
-                type="button"
-                id="btnConfirmarOperacion"
-            >
+                id="confirmAceptar">
                 Confirmar
             </button>
 
@@ -3297,65 +3757,36 @@ footer{
 
 
 <!-- =======================================================
-     CARGANDO
+     MODAL — MENSAJE
 ======================================================= -->
 
 <div
-    id="cargandoOverlay"
-    class="cargando-overlay hidden"
->
+    id="modalMensaje"
+    class="modal hidden">
 
-    <div class="cargando-box">
+    <div class="modal-contenido modal-pequeno">
 
-        <div class="spinner"></div>
+        <div class="modal-cabecera">
 
-        <strong id="cargandoTexto">
-            Procesando...
-        </strong>
-
-        <p
-            id="cargandoDetalle"
-            class="muted"
-            style="margin-top:7px;font-size:12px"
-        ></p>
-
-    </div>
-
-</div>
-
-
-<!-- =======================================================
-     ALERTA DE SESIÓN
-======================================================= -->
-
-<div
-    id="modalSesion"
-    class="acceso-restringido-overlay hidden"
->
-
-    <div class="acceso-restringido-card">
-
-        <div class="acceso-restringido-icono">
-            !
-        </div>
-
-        <h2 class="acceso-restringido-titulo">
-            Sesión finalizada
-        </h2>
-
-        <p class="acceso-restringido-mensaje">
-            Su sesión ha expirado o ya no está disponible.
-            Debe iniciar sesión nuevamente para continuar.
-        </p>
-
-        <div class="acceso-restringido-botones">
+            <h2 id="mensajeTitulo">
+                Información
+            </h2>
 
             <button
-                type="button"
-                id="btnSesionLogin"
-                class="acceso-restringido-btn acceso-restringido-btn-principal"
-            >
-                Volver al inicio
+                class="icon-btn"
+                onclick="cerrarModal('modalMensaje')">
+                ×
+            </button>
+
+        </div>
+
+        <div id="mensajeContenido"></div>
+
+        <div class="modal-pie">
+
+            <button
+                onclick="cerrarModal('modalMensaje')">
+                Aceptar
             </button>
 
         </div>
@@ -3367,20 +3798,37 @@ footer{
 
 <script>
 /* =========================================================
-   CONFIGURACIÓN FRONTEND
+   CONFIGURACIÓN GENERAL
 ========================================================= */
 
-const API_URL = 'https://script.google.com/macros/s/AKfycbyWpw-cdVOfI-cawqLpOJwtDw1Fv2PcO7CtTCDFr0TZ6fhQnfqqtlFyXFLvD-bP209DiQ/exec';
+/*
+ * IMPORTANTE:
+ *
+ * Reemplace este valor por la URL de la implementación
+ * de su Aplicación Web de Google Apps Script.
+ *
+ * Ejemplo:
+ * https://script.google.com/macros/s/XXXXXXXXXXXX/exec
+ */
+
+const API_URL = 'https://script.google.com/macros/s/AKfycbxgYuYqMcWvtKMUQE4mEQyFwRbPVIvIZWBA5yu2tN9pH9rpgwcrzmDNnGzY7VR0E33z6w/exec';
+
 
 const APP = {
+
     token: '',
     usuario: null,
     catalogos: null,
-    resultados: [],
-    documentoActual: null,
-    estadoSeleccionado: '',
-    confirmacionCallback: null,
-    pdfMaxMB: null
+
+    registros: [],
+    registroActual: null,
+
+    pdfArchivo: null,
+
+    confirmCallback: null,
+
+    iniciado: false
+
 };
 
 
@@ -3388,179 +3836,102 @@ const APP = {
    UTILIDADES
 ========================================================= */
 
-const $ = id => document.getElementById(id);
+function $(id){
+    return document.getElementById(id);
+}
+
 
 function escapeHtml(valor){
+
     return String(valor ?? '')
         .replace(/&/g,'&amp;')
         .replace(/</g,'&lt;')
         .replace(/>/g,'&gt;')
         .replace(/"/g,'&quot;')
         .replace(/'/g,'&#039;');
+
 }
 
-function textoSeguro(valor){
-    return escapeHtml(valor);
+
+function texto(valor){
+
+    return valor === null ||
+           valor === undefined ||
+           valor === ''
+        ? '—'
+        : String(valor);
+
 }
 
-function iniciales(nombre){
-    const partes = String(nombre || 'U')
-        .trim()
-        .split(/\s+/)
-        .filter(Boolean);
 
-    if(!partes.length) return 'U';
+function mostrarAlerta(contenedor, mensaje, tipo='info'){
 
-    return partes
-        .slice(0,2)
-        .map(x => x.charAt(0).toUpperCase())
-        .join('');
-}
-
-function mostrarCargando(texto='Procesando...',detalle=''){
-    $('cargandoTexto').textContent = texto;
-    $('cargandoDetalle').textContent = detalle;
-    $('cargandoOverlay').classList.remove('hidden');
-}
-
-function ocultarCargando(){
-    $('cargandoOverlay').classList.add('hidden');
-}
-
-function mostrarMensaje(elemento,mensaje,tipo=''){
-    const el = typeof elemento === 'string' ? $(elemento) : elemento;
+    const el =
+        typeof contenedor === 'string'
+            ? $(contenedor)
+            : contenedor;
 
     if(!el) return;
 
-    el.textContent = mensaje;
-    el.className = 'mensaje';
+    el.innerHTML = `
+        <div class="alerta-card alerta-${tipo}">
+            <div class="alerta-icono">
+                ${tipo === 'error' ? '!' : tipo === 'ok' ? '✓' : 'ℹ'}
+            </div>
 
-    if(tipo) el.classList.add(tipo);
+            <div class="alerta-contenido">
+                <p>${escapeHtml(mensaje)}</p>
+            </div>
+        </div>
+    `;
 
-    el.classList.remove('hidden');
 }
 
-function ocultarMensaje(elemento){
-    const el = typeof elemento === 'string' ? $(elemento) : elemento;
+
+function limpiarAlerta(id){
+
+    const el = $(id);
 
     if(el){
-        el.classList.add('hidden');
-    }
-}
-
-function abrirModal(id){
-    const modal = $(id);
-
-    if(!modal) return;
-
-    modal.classList.remove('hidden');
-    document.body.classList.add('modal-abierto');
-}
-
-function cerrarModal(id){
-    const modal = $(id);
-
-    if(!modal) return;
-
-    modal.classList.add('hidden');
-
-    if(!document.querySelector('.modal:not(.hidden)')){
-        document.body.classList.remove('modal-abierto');
-    }
-}
-
-function cerrarTodosLosModales(){
-    document.querySelectorAll('.modal').forEach(m => {
-        m.classList.add('hidden');
-    });
-
-    document.body.classList.remove('modal-abierto');
-}
-
-function confirmar(titulo,mensaje,callback){
-    $('confirmacionTitulo').textContent = titulo;
-    $('confirmacionMensaje').textContent = mensaje;
-
-    APP.confirmacionCallback = callback;
-
-    abrirModal('modalConfirmacion');
-}
-
-function normalizarFecha(valor){
-    if(!valor) return '';
-
-    return String(valor)
-        .replace('T',' ')
-        .replace(/:00$/,'');
-}
-
-function formatearNumero(valor){
-    const n = Number(valor);
-
-    if(Number.isNaN(n)) return valor || '0';
-
-    return n.toLocaleString('es-BO');
-}
-
-function semaforoHtml(valor){
-    const clase = String(valor || '').toUpperCase();
-
-    if(clase === 'VERDE'){
-        return '<span class="semaforo verde">VERDE</span>';
+        el.innerHTML = '';
     }
 
-    if(clase === 'AMARILLO'){
-        return '<span class="semaforo amarillo">AMARILLO</span>';
-    }
-
-    if(clase === 'ROJO'){
-        return '<span class="semaforo rojo">ROJO</span>';
-    }
-
-    return '<span class="semaforo">SIN DATOS</span>';
-}
-
-function estadoBadge(estado){
-    const e = String(estado || '');
-
-    if(e === 'Firmado' ||
-       e === 'Con visto bueno' ||
-       e === 'Despachado'){
-        return `<span class="badge verde">${textoSeguro(e)}</span>`;
-    }
-
-    if(e === 'Devuelto para corrección'){
-        return `<span class="badge rojo">${textoSeguro(e)}</span>`;
-    }
-
-    if(e === 'En revisión' ||
-       e === 'Reingresado'){
-        return `<span class="badge amarillo">${textoSeguro(e)}</span>`;
-    }
-
-    if(e === 'Pendiente de despacho'){
-        return `<span class="badge azul">${textoSeguro(e)}</span>`;
-    }
-
-    return `<span class="badge gris">${textoSeguro(e || 'Registrado')}</span>`;
 }
 
 
-/* =========================================================
-   HASH CLIENTE
-   El backend aplica su propio SAL.
-========================================================= */
+function formatearTamano(bytes){
 
-async function sha256(texto){
+    if(!bytes) return '0 B';
 
-    const buffer = await crypto.subtle.digest(
-        'SHA-256',
-        new TextEncoder().encode(texto)
-    );
+    const unidades = [
+        'B',
+        'KB',
+        'MB',
+        'GB'
+    ];
 
-    return Array.from(new Uint8Array(buffer))
-        .map(b => b.toString(16).padStart(2,'0'))
-        .join('');
+    const i =
+        Math.floor(
+            Math.log(bytes) /
+            Math.log(1024)
+        );
+
+    return (
+        bytes /
+        Math.pow(1024,i)
+    ).toFixed(i ? 2 : 0)
+    + ' ' +
+    unidades[i];
+
+}
+
+
+function normalizarTexto(v){
+
+    return String(v || '')
+        .trim()
+        .toLowerCase();
+
 }
 
 
@@ -3568,46 +3939,148 @@ async function sha256(texto){
    API
 ========================================================= */
 
-async function api(payload){
+async function api(op, datos={}){
 
-    const datos = Object.assign({},payload);
+    const payload =
+        Object.assign(
+            {},
+            datos,
+            {
+                op:op,
+                token:APP.token || ''
+            }
+        );
 
-    if(APP.token && datos.op !== 'login'){
-        datos.token = APP.token;
+
+    const respuesta =
+        await fetch(
+            API_URL,
+            {
+                method:'POST',
+
+                headers:{
+                    'Content-Type':
+                        'text/plain;charset=utf-8'
+                },
+
+                body:JSON.stringify(payload)
+            }
+        );
+
+
+    if(!respuesta.ok){
+
+        throw new Error(
+            'Error HTTP ' +
+            respuesta.status
+        );
+
     }
 
-    const respuesta = await fetch(
-        API_URL,
-        {
-            method:'POST',
-            headers:{
-                'Content-Type':'application/json'
-            },
-            body:JSON.stringify(datos)
-        }
-    );
 
-    let resultado;
+    const resultado =
+        await respuesta.json();
 
-    try{
-        resultado = await respuesta.json();
-    }catch(e){
-        throw new Error('El servidor no devolvió una respuesta válida.');
-    }
 
     if(!resultado.ok){
 
-        const mensaje = resultado.mensaje || 'Operación no completada.';
+        if(
+            resultado.mensaje ===
+            'SESION_EXPIRADA'
+        ){
 
-        if(mensaje === 'SESION_EXPIRADA' ||
-           mensaje.toLowerCase().includes('sesion')){
             manejarSesionExpirada();
+
         }
 
-        throw new Error(mensaje);
+        throw new Error(
+            resultado.mensaje ||
+            'La operación no pudo completarse.'
+        );
+
     }
 
+
     return resultado;
+
+}
+
+
+/* =========================================================
+   SESIÓN
+========================================================= */
+
+async function probarConexion(){
+
+    try{
+
+        await apiSinSesion('ping');
+
+        $('estadoConexionLogin').textContent =
+            'Conexión disponible';
+
+        $('estadoConexionLogin').style.color =
+            'var(--verde-ok)';
+
+    }catch(error){
+
+        $('estadoConexionLogin').textContent =
+            'No se pudo conectar con el servidor';
+
+        $('estadoConexionLogin').style.color =
+            'var(--rojo-error)';
+
+    }
+
+}
+
+
+async function apiSinSesion(op){
+
+    const respuesta =
+        await fetch(
+            API_URL,
+            {
+                method:'POST',
+
+                headers:{
+                    'Content-Type':
+                        'text/plain;charset=utf-8'
+                },
+
+                body:JSON.stringify({
+                    op:op
+                })
+            }
+        );
+
+
+    if(!respuesta.ok){
+
+        throw new Error(
+            'HTTP ' +
+            respuesta.status
+        );
+
+    }
+
+
+    const r =
+        await respuesta.json();
+
+
+    if(!r.ok){
+
+        throw new Error(
+            r.mensaje ||
+            'Error de conexión'
+        );
+
+    }
+
+
+    return r;
+
 }
 
 
@@ -3615,205 +4088,368 @@ async function api(payload){
    LOGIN
 ========================================================= */
 
-async function ejecutarLogin(){
+$('formLogin').addEventListener(
+    'submit',
+    async function(e){
 
-    const usuario = $('loginUsuario').value.trim().toLowerCase();
-    const clave = $('loginClave').value;
+        e.preventDefault();
 
-    if(!usuario || !clave){
-        mostrarMensaje(
-            'loginMensaje',
-            'Ingrese su usuario y contraseña.',
-            'error'
-        );
-        return;
-    }
+        limpiarAlerta('loginAlerta');
 
-    try{
+        const usuario =
+            $('loginUsuario')
+                .value
+                .trim()
+                .toLowerCase();
 
-        mostrarCargando(
-            'Verificando credenciales...',
-            'Conectando con SSF-DV'
-        );
+        const clave =
+            $('loginClave').value;
 
-        const hash = await sha256(clave);
 
-        const r = await api({
-            op:'login',
-            usuario:usuario,
-            clave:hash
-        });
+        if(!usuario || !clave){
 
-        APP.token = r.token;
-        APP.usuario = r.usuario;
+            mostrarAlerta(
+                'loginAlerta',
+                'Debe ingresar usuario y contraseña.',
+                'advertencia'
+            );
 
-        sessionStorage.setItem(
-            'SSF_DV_TOKEN',
-            APP.token
-        );
-
-        sessionStorage.setItem(
-            'SSF_DV_USUARIO',
-            JSON.stringify(APP.usuario)
-        );
-
-        $('vistaLogin').classList.add('hidden');
-        $('vistaApp').classList.remove('hidden');
-
-        configurarUsuario();
-
-        await cargarCatalogos();
-
-        actualizarConexion(true);
-
-        if(APP.usuario.pendiente){
-
-            $('alertaPrimerAcceso')
-                .classList
-                .remove('hidden');
-
-            abrirModal('modalPrimerAcceso');
-
-        }else{
-
-            await cargarInicio();
+            return;
 
         }
 
-        $('loginClave').value = '';
 
-    }catch(error){
+        const boton =
+            $('btnLogin');
 
-        mostrarMensaje(
-            'loginMensaje',
-            error.message,
-            'error'
-        );
+        boton.disabled = true;
 
-    }finally{
+        boton.innerHTML =
+            '<span class="spinner"></span> Ingresando...';
 
-        ocultarCargando();
+
+        try{
+
+            /*
+             * El backend espera la clave
+             * en forma de hash SHA-256.
+             */
+
+            const hash =
+                await sha256Hex(
+                    clave
+                );
+
+
+            const respuesta =
+                await apiSinSesion('login');
+
+
+            /*
+             * Repetimos login con los datos reales.
+             * Se utiliza fetch directo para poder enviar
+             * el hash calculado.
+             */
+
+            const login =
+                await postLogin(
+                    usuario,
+                    hash
+                );
+
+
+            APP.token =
+                login.token;
+
+            APP.usuario =
+                login.usuario;
+
+
+            guardarSesion();
+
+
+            mostrarAplicacion();
+
+
+            await cargarCatalogos();
+
+
+            if(APP.usuario.pendiente){
+
+                abrirModal(
+                    'modalPrimerAcceso'
+                );
+
+            }
+
+
+        }catch(error){
+
+            mostrarAlerta(
+                'loginAlerta',
+                error.message,
+                'error'
+            );
+
+        }finally{
+
+            boton.disabled = false;
+
+            boton.textContent =
+                'Ingresar';
+
+        }
 
     }
+);
+
+
+async function postLogin(
+    usuario,
+    hash
+){
+
+    const respuesta =
+        await fetch(
+            API_URL,
+            {
+                method:'POST',
+
+                headers:{
+                    'Content-Type':
+                        'text/plain;charset=utf-8'
+                },
+
+                body:JSON.stringify({
+
+                    op:'login',
+
+                    usuario:usuario,
+
+                    clave:hash
+
+                })
+            }
+        );
+
+
+    if(!respuesta.ok){
+
+        throw new Error(
+            'No fue posible conectar con el servidor.'
+        );
+
+    }
+
+
+    const r =
+        await respuesta.json();
+
+
+    if(!r.ok){
+
+        throw new Error(
+            r.mensaje ||
+            'Usuario o contraseña incorrectos.'
+        );
+
+    }
+
+
+    return r;
+
 }
 
 
 /* =========================================================
-   RESTAURACIÓN DE SESIÓN
+   SHA-256
 ========================================================= */
 
-async function restaurarSesion(){
+async function sha256Hex(texto){
+
+    const buffer =
+        new TextEncoder()
+            .encode(texto);
+
+    const hash =
+        await crypto.subtle.digest(
+            'SHA-256',
+            buffer
+        );
+
+    return Array.from(
+        new Uint8Array(hash)
+    )
+    .map(
+        b =>
+            b.toString(16)
+             .padStart(2,'0')
+    )
+    .join('');
+
+}
+
+
+/* =========================================================
+   SESIÓN LOCAL
+========================================================= */
+
+function guardarSesion(){
+
+    sessionStorage.setItem(
+        'SSF_DV_TOKEN',
+        APP.token
+    );
+
+}
+
+
+function recuperarSesion(){
 
     const token =
-        sessionStorage.getItem('SSF_DV_TOKEN');
+        sessionStorage.getItem(
+            'SSF_DV_TOKEN'
+        );
 
-    const usuario =
-        sessionStorage.getItem('SSF_DV_USUARIO');
+    if(token){
 
-    if(!token || !usuario){
-        return false;
-    }
-
-    try{
-
-        APP.token = token;
-        APP.usuario = JSON.parse(usuario);
-
-        $('vistaLogin').classList.add('hidden');
-        $('vistaApp').classList.remove('hidden');
-
-        configurarUsuario();
-
-        await cargarCatalogos();
-
-        actualizarConexion(true);
-
-        await cargarInicio();
+        APP.token =
+            token;
 
         return true;
 
-    }catch(error){
-
-        limpiarSesion();
-
-        return false;
     }
+
+    return false;
+
 }
+
 
 function limpiarSesion(){
 
-    APP.token = '';
-    APP.usuario = null;
-    APP.catalogos = null;
+    sessionStorage.removeItem(
+        'SSF_DV_TOKEN'
+    );
 
-    sessionStorage.removeItem('SSF_DV_TOKEN');
-    sessionStorage.removeItem('SSF_DV_USUARIO');
+    APP.token = '';
+
+    APP.usuario = null;
+
 }
+
 
 function manejarSesionExpirada(){
 
     limpiarSesion();
 
-    cerrarTodosLosModales();
+    ocultarAplicacion();
 
-    $('vistaApp').classList.add('hidden');
+    mostrarAlerta(
+        'loginAlerta',
+        'La sesión ha expirado. Ingrese nuevamente.',
+        'advertencia'
+    );
 
-    $('modalSesion').classList.remove('hidden');
 }
 
-function actualizarConexion(ok){
 
-    const el = $('estadoConexion');
+async function cerrarSesion(){
 
-    if(ok){
+    try{
 
-        el.textContent = 'Conexión correcta';
-        el.className = 'conexion ok';
+        if(APP.token){
 
-    }else{
+            await api('logout');
 
-        el.textContent = 'Sin conexión';
-        el.className = 'conexion error';
+        }
+
+    }catch(e){
+
+        /* La sesión puede ya estar expirada. */
 
     }
+
+    limpiarSesion();
+
+    ocultarAplicacion();
+
+    $('loginUsuario').value = '';
+    $('loginClave').value = '';
+
 }
 
 
 /* =========================================================
-   CONFIGURACIÓN USUARIO
+   MOSTRAR / OCULTAR APLICACIÓN
 ========================================================= */
 
-function configurarUsuario(){
+function mostrarAplicacion(){
+
+    $('vistaLogin')
+        .classList.remove('activa');
+
+    $('vistaApp')
+        .classList.add('activa');
+
+
+    actualizarUsuarioUI();
+
+}
+
+
+function ocultarAplicacion(){
+
+    $('vistaApp')
+        .classList.remove('activa');
+
+    $('vistaLogin')
+        .classList.add('activa');
+
+}
+
+
+function actualizarUsuarioUI(){
 
     if(!APP.usuario) return;
 
-    $('usuarioActual').textContent =
-        `${APP.usuario.nombre || APP.usuario.usuario} · ${APP.usuario.rol}`;
+
+    $('nombreUsuario').textContent =
+        APP.usuario.nombre ||
+        APP.usuario.usuario ||
+        'Usuario';
+
+
+    $('rolUsuario').textContent =
+        APP.usuario.rol ||
+        '—';
+
+
+    const inicial =
+        (
+            APP.usuario.nombre ||
+            APP.usuario.usuario ||
+            'U'
+        )
+        .charAt(0)
+        .toUpperCase();
+
 
     $('usuarioAvatar').textContent =
-        iniciales(APP.usuario.nombre || APP.usuario.usuario);
+        inicial;
 
-    const esAdmin =
-        APP.usuario.rol === 'Administrador';
 
-    const puedeAlta =
-        ['Administrador','Registro']
-            .includes(APP.usuario.rol);
+    if(APP.usuario.rol === 'Administrador'){
 
-    $('menuUsuarios').classList.toggle(
-        'hidden',
-        !esAdmin
-    );
+        $('menuUsuarios')
+            .classList.remove('hidden');
 
-    $('menuAlta').classList.toggle(
-        'hidden',
-        !puedeAlta
-    );
+    }else{
 
-    $('alertaPrimerAcceso').classList.toggle(
-        'hidden',
-        !APP.usuario.pendiente
-    );
+        $('menuUsuarios')
+            .classList.add('hidden');
+
+    }
+
 }
 
 
@@ -3823,369 +4459,536 @@ function configurarUsuario(){
 
 async function cargarCatalogos(){
 
-    const r = await api({
-        op:'catalogos'
-    });
+    const r =
+        await api('catalogos');
 
-    APP.catalogos = r;
 
-    APP.pdfMaxMB =
-        Number(r.pdfMaxMB || r.PdfMaxMB || 0) || null;
+    APP.catalogos =
+        r;
+
 
     llenarCatalogos();
+
 
     $('altaGestion').value =
         r.gestion || '';
 
-    actualizarPdfMaxTexto();
+
+    $('footerGestion').textContent =
+        r.gestion || '—';
+
+
+    actualizarEstadoConexion(true);
+
 }
 
-function llenarSelect(id,items,valorFn,textoFn,placeholder='Seleccione...'){
 
-    const select = $(id);
+function llenarSelect(
+    id,
+    elementos,
+    valorKey,
+    textoKey,
+    opcionInicial='Seleccione...'
+){
+
+    const select =
+        $(id);
 
     if(!select) return;
 
+
     select.innerHTML =
-        `<option value="">${placeholder}</option>`;
+        `<option value="">
+            ${escapeHtml(opcionInicial)}
+        </option>`;
 
-    (items || []).forEach(item => {
 
-        const option = document.createElement('option');
+    (elementos || [])
+        .forEach(item => {
 
-        option.value =
-            valorFn ? valorFn(item) : item;
+            const valor =
+                typeof item === 'string'
+                    ? item
+                    : item[valorKey];
 
-        option.textContent =
-            textoFn ? textoFn(item) : item;
+            const texto =
+                typeof item === 'string'
+                    ? item
+                    : item[textoKey];
 
-        select.appendChild(option);
-    });
+
+            const option =
+                document.createElement('option');
+
+            option.value =
+                valor;
+
+            option.textContent =
+                texto;
+
+            select.appendChild(
+                option
+            );
+
+        });
+
 }
+
 
 function llenarCatalogos(){
 
     if(!APP.catalogos) return;
 
+
     llenarSelect(
         'altaDependencia',
         APP.catalogos.dependencias,
-        x => x.Codigo || x.Sigla || x.ID_Dependencia || x.Nombre || '',
-        x => x.Nombre || x.Descripcion || x.Sigla || x.Codigo || ''
+        'Sigla',
+        'Nombre'
     );
+
 
     llenarSelect(
         'altaTipo',
         APP.catalogos.tipos,
-        x => x.Codigo || '',
-        x => x.Nombre || x.Descripcion || x.Codigo || ''
+        'Codigo',
+        'Nombre'
     );
+
 
     llenarSelect(
         'altaDestino',
-        APP.catalogos.destinos
+        APP.catalogos.destinos,
+        null,
+        null
     );
 
+
     llenarSelect(
-        'filtroTipo',
+        'buscarTipo',
         APP.catalogos.tipos,
-        x => x.Codigo || '',
-        x => x.Nombre || x.Descripcion || x.Codigo || '',
+        'Codigo',
+        'Nombre',
         'Todos'
     );
 
+
     llenarSelect(
-        'filtroEstado',
+        'buscarEstado',
         APP.catalogos.estados,
         null,
         null,
         'Todos'
     );
 
+
     llenarSelect(
-        'filtroDestino',
+        'buscarDestino',
         APP.catalogos.destinos,
         null,
         null,
         'Todos'
     );
-}
 
 
-/* =========================================================
-   DEPENDENCIAS / UNIDADES
-========================================================= */
+    const gestiones =
+        APP.catalogos.gestion
+            ? [APP.catalogos.gestion]
+            : [];
 
-function actualizarUnidades(){
-
-    const dep =
-        $('altaDependencia').value;
-
-    const unidades =
-        (APP.catalogos?.unidades || [])
-            .filter(u =>
-                String(u.Dependencia || '') === String(dep)
-            );
 
     llenarSelect(
-        'altaUnidad',
-        unidades,
-        x => x.Sigla || x.Codigo || '',
-        x => x.Nombre || x.Descripcion || x.Sigla || ''
+        'buscarGestion',
+        gestiones,
+        null,
+        null,
+        'Todas'
     );
+
 }
 
 
 /* =========================================================
-   INICIO
+   DEPENDENCIA / UNIDAD
 ========================================================= */
 
-async function cargarInicio(){
+$('altaDependencia')
+    .addEventListener(
+        'change',
+        function(){
 
-    try{
+            const dep =
+                this.value;
 
-        mostrarCargando(
-            'Actualizando panel...',
-            'Consultando documentos'
-        );
+            const select =
+                $('altaUnidad');
 
-        const r = await api({
-            op:'buscar',
-            filtros:{}
-        });
 
-        APP.resultados = r.registros || [];
+            select.innerHTML =
+                '<option value="">Seleccione...</option>';
 
-        actualizarIndicadores(
-            APP.resultados
-        );
+            select.disabled = true;
 
-        renderRecientes(
-            APP.resultados.slice(0,8)
-        );
 
-    }catch(error){
+            if(!dep ||
+               !APP.catalogos ||
+               !APP.catalogos.unidades){
 
-        mostrarMensaje(
-            'loginMensaje',
-            error.message,
-            'error'
-        );
+                return;
 
-    }finally{
+            }
 
-        ocultarCargando();
 
-    }
-}
+            const unidades =
+                APP.catalogos.unidades
+                    .filter(
+                        u =>
+                            String(u.Dependencia)
+                            ===
+                            String(dep)
+                    );
 
-function actualizarIndicadores(registros){
 
-    let verde = 0;
-    let amarillo = 0;
-    let rojo = 0;
+            unidades.forEach(
+                u => {
 
-    registros.forEach(r => {
+                    const option =
+                        document.createElement(
+                            'option'
+                        );
 
-        if(r.Semaforo === 'VERDE') verde++;
-        else if(r.Semaforo === 'AMARILLO') amarillo++;
-        else if(r.Semaforo === 'ROJO') rojo++;
+                    option.value =
+                        u.Sigla;
 
-    });
+                    option.textContent =
+                        u.Nombre
+                            ? u.Sigla +
+                              ' — ' +
+                              u.Nombre
+                            : u.Sigla;
 
-    $('indTotal').textContent =
-        formatearNumero(registros.length);
+                    select.appendChild(
+                        option
+                    );
 
-    $('indVerde').textContent =
-        formatearNumero(verde);
+                }
+            );
 
-    $('indAmarillo').textContent =
-        formatearNumero(amarillo);
 
-    $('indRojo').textContent =
-        formatearNumero(rojo);
-}
+            select.disabled =
+                unidades.length === 0;
 
-function renderRecientes(registros){
-
-    const contenedor =
-        $('tablaRecientes');
-
-    if(!registros.length){
-
-        contenedor.innerHTML =
-            '<div class="vacio">No existen documentos registrados.</div>';
-
-        return;
-    }
-
-    contenedor.innerHTML = crearTablaDocumentos(
-        registros
+        }
     );
-}
 
 
 /* =========================================================
-   NAVEGACIÓN
+   VISTAS
 ========================================================= */
 
 function mostrarVista(nombre){
 
-    document
-        .querySelectorAll('.vista')
-        .forEach(v => v.classList.add('hidden'));
+    if(
+        APP.usuario &&
+        APP.usuario.pendiente &&
+        nombre !== 'inicio'
+    ){
 
-    const vista = $('vista' + capitalizar(nombre));
+        abrirModal(
+            'modalPrimerAcceso'
+        );
 
-    if(vista){
-        vista.classList.remove('hidden');
+        return;
+
     }
 
+
     document
-        .querySelectorAll('.menu-btn')
-        .forEach(btn => {
+        .querySelectorAll(
+            '#vistaApp main .vista'
+        )
+        .forEach(
+            v =>
+                v.classList.remove(
+                    'activa'
+                )
+        );
 
-            btn.classList.toggle(
-                'activo',
-                btn.dataset.vista === nombre
-            );
 
-        });
+    const vista =
+        $('vista' +
+            nombre.charAt(0).toUpperCase() +
+            nombre.slice(1)
+        );
+
+
+    if(vista){
+
+        vista.classList.add(
+            'activa'
+        );
+
+    }
+
+
+    document
+        .querySelectorAll(
+            '.menu button'
+        )
+        .forEach(
+            b =>
+                b.classList.remove(
+                    'activo'
+                )
+        );
+
+
+    const boton =
+        $('menu' +
+            nombre.charAt(0).toUpperCase() +
+            nombre.slice(1)
+        );
+
+
+    if(boton){
+
+        boton.classList.add(
+            'activo'
+        );
+
+    }
+
+
+    if(nombre === 'inicio'){
+
+        cargarDashboard();
+
+    }
+
+
+    if(nombre === 'usuarios'){
+
+        cargarUsuarios();
+
+    }
+
 
     window.scrollTo({
         top:0,
         behavior:'smooth'
     });
-}
 
-function capitalizar(texto){
-
-    return texto.charAt(0).toUpperCase()
-        + texto.slice(1);
 }
 
 
 /* =========================================================
-   ALTA
+   DASHBOARD
 ========================================================= */
 
-async function registrarAlta(event){
+async function cargarDashboard(){
 
-    event.preventDefault();
+    if(!APP.token) return;
 
-    const datos = {
-
-        op:'alta',
-
-        gestion:Number(
-            $('altaGestion').value
-        ),
-
-        dependencia:
-            $('altaDependencia').value,
-
-        unidad:
-            $('altaUnidad').value,
-
-        tipo:
-            $('altaTipo').value,
-
-        numeroCite:
-            $('altaNumeroCite').value.trim(),
-
-        destinatario:
-            $('altaDestinatario').value.trim(),
-
-        asunto:
-            $('altaAsunto').value.trim(),
-
-        remitente:
-            $('altaRemitente').value.trim(),
-
-        referencia:
-            $('altaReferencia').value.trim(),
-
-        responsable:
-            $('altaResponsable').value.trim(),
-
-        destino:
-            $('altaDestino').value,
-
-        observaciones:
-            $('altaObservaciones').value.trim()
-    };
-
-    if(!datos.dependencia ||
-       !datos.unidad ||
-       !datos.tipo ||
-       !datos.numeroCite ||
-       !datos.destinatario ||
-       !datos.asunto ||
-       !datos.responsable ||
-       !datos.destino){
-
-        mostrarMensaje(
-            'altaMensaje',
-            'Complete todos los campos obligatorios.',
-            'error'
-        );
-
-        return;
-    }
 
     try{
 
-        mostrarCargando(
-            'Registrando documento...',
-            'Validando información institucional'
+        const r =
+            await api(
+                'buscar',
+                {
+                    filtros:{}
+                }
+            );
+
+
+        APP.registros =
+            r.registros || [];
+
+
+        actualizarIndicadores(
+            APP.registros
         );
 
-        const r = await api(datos);
 
-        cerrarTodosLosModales();
-
-        limpiarFormularioAlta();
-
-        mostrarVista('inicio');
-
-        await cargarInicio();
-
-        confirmar(
-            'Registro creado',
-            `El documento fue registrado correctamente con ID ${r.id} y Cite ${r.cite}.`,
-            null
+        mostrarResumenInicio(
+            APP.registros
         );
+
+
+        actualizarEstadoConexion(
+            true
+        );
+
 
     }catch(error){
 
-        mostrarAlertaGlobal(
-            'No se pudo registrar el documento',
+        actualizarEstadoConexion(
+            false
+        );
+
+
+        mostrarAlerta(
+            'alertasInicio',
             error.message,
             'error'
         );
 
-    }finally{
-
-        ocultarCargando();
-
     }
+
 }
 
-function limpiarFormularioAlta(){
 
-    $('formAlta').reset();
+function actualizarIndicadores(
+    registros
+){
 
-    $('altaGestion').value =
-        APP.catalogos?.gestion || '';
+    const total =
+        registros.length;
 
-    $('altaUnidad').innerHTML =
-        '<option value="">Seleccione...</option>';
 
-    $('vistaCiteGenerado')
-        .classList
-        .add('hidden');
+    const verde =
+        registros.filter(
+            r =>
+                r.Semaforo === 'VERDE'
+        ).length;
 
-    $('citeGenerado').textContent = '';
+
+    const amarillo =
+        registros.filter(
+            r =>
+                r.Semaforo === 'AMARILLO'
+        ).length;
+
+
+    const rojo =
+        registros.filter(
+            r =>
+                r.Semaforo === 'ROJO'
+        ).length;
+
+
+    $('indicadorTotal').textContent =
+        total;
+
+    $('indicadorVerde').textContent =
+        verde;
+
+    $('indicadorAmarillo').textContent =
+        amarillo;
+
+    $('indicadorRojo').textContent =
+        rojo;
+
+}
+
+
+function mostrarResumenInicio(
+    registros
+){
+
+    const el =
+        $('panelInicio');
+
+
+    if(!registros.length){
+
+        el.innerHTML = `
+            <div class="vacio">
+                No existen documentos registrados
+                actualmente.
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    const recientes =
+        registros.slice(0,5);
+
+
+    el.innerHTML = `
+
+        <div class="cabecera-tarjeta">
+
+            <span class="etiqueta-institucional">
+                ÚLTIMOS REGISTROS
+            </span>
+
+            <h3>
+                Seguimiento reciente
+            </h3>
+
+        </div>
+
+        <div class="tabla-contenedor">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+                        <th>Cite</th>
+                        <th>Estado</th>
+                        <th>Semáforo</th>
+                        <th>Acción</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    ${
+                        recientes
+                            .map(
+                                r => `
+
+                                    <tr>
+
+                                        <td>
+                                            ${escapeHtml(r.ID_Registro)}
+                                        </td>
+
+                                        <td>
+                                            ${escapeHtml(r.Cite)}
+                                        </td>
+
+                                        <td>
+                                            ${escapeHtml(r.Estado)}
+                                        </td>
+
+                                        <td>
+                                            ${renderSemaforo(
+                                                r.Semaforo
+                                            )}
+                                        </td>
+
+                                        <td>
+                                            <button
+                                                class="small"
+                                                onclick="verDocumento('${escapeJs(r.ID_Registro)}')">
+                                                Ver
+                                            </button>
+                                        </td>
+
+                                    </tr>
+
+                                `
+                            )
+                            .join('')
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+    `;
+
 }
 
 
@@ -4193,270 +4996,2033 @@ function limpiarFormularioAlta(){
    BÚSQUEDA
 ========================================================= */
 
-async function ejecutarBusqueda(event){
+$('formBusqueda')
+    .addEventListener(
+        'submit',
+        async function(e){
 
-    if(event) event.preventDefault();
+            e.preventDefault();
+
+            await ejecutarBusqueda();
+
+        }
+    );
+
+
+async function ejecutarBusqueda(){
 
     const filtros = {
 
         ID_Registro:
-            $('filtroID').value.trim(),
+            $('buscarId').value.trim(),
 
         Cite:
-            $('filtroCite').value.trim(),
+            $('buscarCite').value.trim(),
 
         Destinatario:
-            $('filtroDestinatario').value.trim(),
+            $('buscarDestinatario').value.trim(),
 
         Asunto:
-            $('filtroAsunto').value.trim(),
+            $('buscarAsunto').value.trim(),
 
         Remitente:
-            $('filtroRemitente').value.trim(),
+            $('buscarRemitente').value.trim(),
+
+        Referencia:
+            $('buscarReferencia').value.trim(),
 
         Responsable:
-            $('filtroResponsable').value.trim(),
+            $('buscarResponsable').value.trim(),
 
         Gestion:
-            $('filtroGestion').value.trim(),
+            $('buscarGestion').value,
 
         Tipo_Documental:
-            $('filtroTipo').value,
+            $('buscarTipo').value,
 
         Estado:
-            $('filtroEstado').value,
+            $('buscarEstado').value,
 
         Destino:
-            $('filtroDestino').value
+            $('buscarDestino').value
+
     };
+
+
+    const resultado =
+        $('resultadoBusqueda');
+
+
+    resultado.classList.remove(
+        'hidden'
+    );
+
+
+    $('tablaResultados').innerHTML = `
+
+        <tr>
+
+            <td colspan="8"
+                class="texto-centro">
+
+                <span
+                    class="spinner spinner-oscuro">
+                </span>
+
+                Buscando...
+
+            </td>
+
+        </tr>
+    `;
+
 
     try{
 
-        mostrarCargando(
-            'Buscando documentos...',
-            'Consultando R_Principal'
-        );
+        const r =
+            await api(
+                'buscar',
+                {
+                    filtros:filtros
+                }
+            );
 
-        const r = await api({
-            op:'buscar',
-            filtros:filtros
-        });
 
-        APP.resultados =
+        APP.registros =
             r.registros || [];
 
-        $('totalResultados').textContent =
-            `${formatearNumero(r.total || 0)} registros`;
 
-        $('tablaResultados').innerHTML =
-            crearTablaDocumentos(
-                APP.resultados
-            );
+        $('totalResultados').textContent =
+            r.total || 0;
+
+
+        renderResultados(
+            APP.registros
+        );
+
 
     }catch(error){
 
-        $('tablaResultados').innerHTML =
-            `<div class="mensaje error">${textoSeguro(error.message)}</div>`;
+        $('tablaResultados').innerHTML = `
 
-    }finally{
-
-        ocultarCargando();
-
-    }
-}
-
-function limpiarBusqueda(){
-
-    $('formBusqueda').reset();
-
-    $('totalResultados').textContent =
-        '0 registros';
-
-    $('tablaResultados').innerHTML =
-        '<div class="vacio">Realice una búsqueda para consultar documentos.</div>';
-}
-
-
-/* =========================================================
-   TABLA DOCUMENTOS
-========================================================= */
-
-function crearTablaDocumentos(registros){
-
-    if(!registros || !registros.length){
-
-        return `
-            <div class="vacio">
-                No se encontraron documentos con los criterios indicados.
-            </div>
-        `;
-    }
-
-    let html = `
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Cite</th>
-                    <th>Asunto</th>
-                    <th>Destino</th>
-                    <th>Estado</th>
-                    <th>Tiempo</th>
-                    <th>Semáforo</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-    `;
-
-    registros.forEach(r => {
-
-        html += `
             <tr>
-                <td>
-                    <strong>${textoSeguro(r.ID_Registro)}</strong>
-                </td>
 
-                <td>
-                    ${textoSeguro(r.Cite)}
-                </td>
+                <td colspan="8">
 
-                <td>
-                    ${textoSeguro(r.Asunto)}
-                </td>
-
-                <td>
-                    ${textoSeguro(r.Destino)}
-                </td>
-
-                <td>
-                    ${estadoBadge(r.Estado)}
-                </td>
-
-                <td>
-                    ${textoSeguro(r.Tiempo_Transcurrido || '')}
-                </td>
-
-                <td>
-                    ${semaforoHtml(r.Semaforo)}
-                </td>
-
-                <td>
-                    <div class="acciones-tabla">
-
-                        <button
-                            type="button"
-                            class="small"
-                            onclick="verDocumento('${escapeJs(r.ID_Registro)}')"
-                        >
-                            Ver
-                        </button>
-
-                        ${puedeCambiarEstado()
-                            ? `
-                            <button
-                                type="button"
-                                class="small alt"
-                                onclick="abrirCambioEstado('${escapeJs(r.ID_Registro)}')"
-                            >
-                                Estado
-                            </button>
-                            `
-                            : ''
-                        }
-
+                    <div class="mensaje error">
+                        ${escapeHtml(error.message)}
                     </div>
+
                 </td>
 
             </tr>
         `;
-    });
 
-    html += `
-            </tbody>
-        </table>
-    `;
+    }
 
-    return html;
 }
 
-function escapeJs(valor){
 
-    return String(valor || '')
-        .replace(/\\/g,'\\\\')
-        .replace(/'/g,"\\'");
+function renderResultados(
+    registros
+){
+
+    const tbody =
+        $('tablaResultados');
+
+
+    if(!registros.length){
+
+        tbody.innerHTML = `
+
+            <tr>
+
+                <td
+                    colspan="8"
+                    class="texto-centro">
+
+                    No se encontraron documentos.
+
+                </td>
+
+            </tr>
+        `;
+
+        return;
+
+    }
+
+
+    tbody.innerHTML =
+        registros
+            .map(
+                r => `
+
+                    <tr>
+
+                        <td>
+                            <strong>
+                                ${escapeHtml(
+                                    r.ID_Registro
+                                )}
+                            </strong>
+                        </td>
+
+                        <td>
+                            ${escapeHtml(
+                                r.Cite
+                            )}
+                        </td>
+
+                        <td>
+                            ${escapeHtml(
+                                r.Tipo_Documental
+                            )}
+                        </td>
+
+                        <td>
+                            ${escapeHtml(
+                                r.Destino
+                            )}
+                        </td>
+
+                        <td>
+                            <span class="estado-badge">
+                                ${escapeHtml(
+                                    r.Estado
+                                )}
+                            </span>
+                        </td>
+
+                        <td>
+                            ${renderSemaforo(
+                                r.Semaforo
+                            )}
+                        </td>
+
+                        <td>
+                            ${escapeHtml(
+                                r.Tiempo_Transcurrido
+                            )}
+                        </td>
+
+                        <td>
+
+                            <div class="acciones-tabla">
+
+                                <button
+                                    class="small"
+                                    onclick="verDocumento('${escapeJs(r.ID_Registro)}')">
+                                    Ver
+                                </button>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                `
+            )
+            .join('');
+
+}
+
+
+function buscarPorSemaforo(
+    semaforo
+){
+
+    mostrarVista('buscar');
+
+    $('buscarId').value = '';
+    $('buscarCite').value = '';
+    $('buscarDestinatario').value = '';
+    $('buscarAsunto').value = '';
+    $('buscarRemitente').value = '';
+    $('buscarReferencia').value = '';
+    $('buscarResponsable').value = '';
+
+    ejecutarBusqueda()
+        .then(
+            () => {
+
+                const filtrados =
+                    APP.registros
+                        .filter(
+                            r =>
+                                r.Semaforo ===
+                                semaforo
+                        );
+
+                $('totalResultados')
+                    .textContent =
+                    filtrados.length;
+
+                renderResultados(
+                    filtrados
+                );
+
+            }
+        );
+
 }
 
 
 /* =========================================================
-   DETALLE DOCUMENTO
+   LIMPIAR BÚSQUEDA
+========================================================= */
+
+function limpiarBusqueda(){
+
+    [
+        'buscarId',
+        'buscarCite',
+        'buscarDestinatario',
+        'buscarAsunto',
+        'buscarRemitente',
+        'buscarReferencia',
+        'buscarResponsable'
+    ]
+    .forEach(
+        id => $(id).value = ''
+    );
+
+
+    [
+        'buscarGestion',
+        'buscarTipo',
+        'buscarEstado',
+        'buscarDestino'
+    ]
+    .forEach(
+        id => $(id).value = ''
+    );
+
+
+    $('resultadoBusqueda')
+        .classList.add('hidden');
+
+}
+
+
+/* =========================================================
+   DETALLE
 ========================================================= */
 
 async function verDocumento(id){
 
-    abrirModal('modalDetalle');
-
-    $('detalleContenido').innerHTML =
-        '<div class="vacio">Consultando documento...</div>';
-
     try{
 
-        const r = await api({
-            op:'obtener',
-            id:id
-        });
+        const r =
+            await api(
+                'obtener',
+                {
+                    id:id
+                }
+            );
 
-        APP.documentoActual =
+
+        APP.registroActual =
             r.registro;
+
 
         renderDetalle(
             r.registro,
             r.historial || []
         );
 
+
+        prepararBotonesDetalle(
+            r.registro
+        );
+
+
+        abrirModal(
+            'modalDetalle'
+        );
+
+
     }catch(error){
 
-        $('detalleContenido').innerHTML =
-            `<div class="mensaje error">${textoSeguro(error.message)}</div>`;
+        mostrarMensaje(
+            'No fue posible obtener el documento.',
+            error.message,
+            'error'
+        );
 
     }
+
 }
 
-function renderDetalle(r,historial){
 
-    let pdf = '';
+function renderDetalle(
+    r,
+    historial
+){
+
+    $('detalleTitulo').textContent =
+        r.ID_Registro || 'Documento';
+
+
+    let html = `
+
+        <div class="datos-grid">
+
+            ${campo(
+                'ID Registro',
+                r.ID_Registro
+            )}
+
+            ${campo(
+                'Gestión',
+                r.Gestion
+            )}
+
+            ${campo(
+                'Fecha registro',
+                r.Fecha_Registro
+            )}
+
+            ${campo(
+                'Hora registro',
+                r.Hora_Registro
+            )}
+
+            ${campo(
+                'Tipo documental',
+                r.Tipo_Documental
+            )}
+
+            ${campo(
+                'Cite',
+                r.Cite
+            )}
+
+            ${campo(
+                'Dependencia',
+                r.Dependencia
+            )}
+
+            ${campo(
+                'Unidad',
+                r.Unidad
+            )}
+
+            ${campo(
+                'Remitente',
+                r.Remitente
+            )}
+
+            ${campo(
+                'Destinatario',
+                r.Destinatario
+            )}
+
+            ${campo(
+                'Responsable',
+                r.Responsable
+            )}
+
+            ${campo(
+                'Destino',
+                r.Destino
+            )}
+
+            ${campo(
+                'Estado',
+                r.Estado
+            )}
+
+            ${campo(
+                'Tiempo transcurrido',
+                r.Tiempo_Transcurrido
+            )}
+
+            ${campo(
+                'Semáforo',
+                renderSemaforo(
+                    r.Semaforo
+                ),
+                true
+            )}
+
+            ${campo(
+                'Asunto',
+                r.Asunto,
+                false,
+                true
+            )}
+
+            ${campo(
+                'Referencia',
+                r.Referencia,
+                false,
+                true
+            )}
+
+            ${campo(
+                'Observaciones',
+                r.Observaciones,
+                false,
+                true
+            )}
+
+        </div>
+    `;
+
 
     if(r.Enlace_PDF){
 
-        pdf = `
-            <a
-                class="pdf-link"
-                href="${escapeAttribute(r.Enlace_PDF)}"
-                target="_blank"
-                rel="noopener"
-            >
-                Abrir PDF
-            </a>
+        html += `
+
+            <div class="alerta-card alerta-exito"
+                 style="margin-top:18px">
+
+                <div class="alerta-icono">
+                    ✓
+                </div>
+
+                <div class="alerta-contenido">
+
+                    <h4>
+                        PDF disponible
+                    </h4>
+
+                    <p>
+                        El documento digital se encuentra
+                        registrado en el archivo.
+                    </p>
+
+                    <p style="margin-top:8px">
+
+                        <a
+                            href="${escapeAttribute(r.Enlace_PDF)}"
+                            target="_blank"
+                            rel="noopener"
+                            class="pdf-link">
+                            Abrir PDF
+                        </a>
+
+                    </p>
+
+                </div>
+
+            </div>
+
         `;
 
     }else{
 
-        pdf = `
-            <span class="pdf-no-disponible">
-                PDF no disponible.
-            </span>
-        `;
-    }
+        html += `
 
-    let html = `
+            <div class="alerta-card alerta-advertencia"
+                 style="margin-top:18px">
 
-        <div class="detalle-cabecera">
-
-            <div>
-
-                <div class="detalle-codigo">
-                    ${textoSeguro(r.ID_Registro)}
+                <div class="alerta-icono">
+                    !
                 </div>
 
-                <div class="detalle-cite">
-                    ${textoSeguro(r
+                <div class="alerta-contenido">
+
+                    <h4>
+                        PDF no disponible
+                    </h4>
+
+                    <p>
+                        El documento todavía no tiene PDF
+                        asociado. La carga se realizará únicamente
+                        como parte del despacho.
+                    </p>
+
+                </div>
+
+            </div>
+
+        `;
+
+    }
+
+
+    if(historial &&
+       historial.length){
+
+        html += `
+
+            <div style="margin-top:25px">
+
+                <span class="etiqueta-institucional">
+                    TRAZABILIDAD
+                </span>
+
+                <h3>
+                    Historial de estados
+                </h3>
+
+                <div class="tabla-contenedor">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Fecha
+                                </th>
+
+                                <th>
+                                    Hora
+                                </th>
+
+                                <th>
+                                    Usuario
+                                </th>
+
+                                <th>
+                                    Estado anterior
+                                </th>
+
+                                <th>
+                                    Estado nuevo
+                                </th>
+
+                                <th>
+                                    Observaciones
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            ${
+                                historial
+                                    .map(
+                                        h => `
+
+                                            <tr>
+
+                                                <td>
+                                                    ${escapeHtml(h.Fecha)}
+                                                </td>
+
+                                                <td>
+                                                    ${escapeHtml(h.Hora)}
+                                                </td>
+
+                                                <td>
+                                                    ${escapeHtml(h.Usuario)}
+                                                </td>
+
+                                                <td>
+                                                    ${escapeHtml(h.Estado_Anterior)}
+                                                </td>
+
+                                                <td>
+                                                    ${escapeHtml(h.Estado_Nuevo)}
+                                                </td>
+
+                                                <td>
+                                                    ${escapeHtml(h.Observaciones)}
+                                                </td>
+
+                                            </tr>
+
+                                        `
+                                    )
+                                    .join('')
+                            }
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        `;
+
+    }
+
+
+    $('detalleContenido').innerHTML =
+        html;
+
+}
+
+
+function campo(
+    etiqueta,
+    valor,
+    html=false,
+    ancho=false
+){
+
+    return `
+
+        <div class="campo ${ancho ? 'campo-ancho' : ''}">
+
+            <span>
+                ${escapeHtml(etiqueta)}
+            </span>
+
+            <strong>
+                ${
+                    html
+                        ? valor
+                        : escapeHtml(
+                            texto(valor)
+                        )
+                }
+            </strong>
+
+        </div>
+
+    `;
+
+}
+
+
+function prepararBotonesDetalle(
+    r
+){
+
+    const btnEstado =
+        $('btnDetalleEstado');
+
+    const btnPdf =
+        $('btnDetallePdf');
+
+
+    btnEstado.classList.remove(
+        'hidden'
+    );
+
+
+    /*
+     * El PDF NO aparece como operación
+     * independiente.
+     *
+     * Solamente aparece cuando el documento
+     * está en condiciones de ser despachado.
+     */
+
+    if(
+        r.Estado === 'Pendiente de despacho'
+    ){
+
+        btnPdf.classList.remove(
+            'hidden'
+        );
+
+    }else{
+
+        btnPdf.classList.add(
+            'hidden'
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   CAMBIO DE ESTADO
+========================================================= */
+
+function abrirCambioEstado(){
+
+    const r =
+        APP.registroActual;
+
+    if(!r) return;
+
+
+    cerrarModal(
+        'modalDetalle'
+    );
+
+
+    $('estadoActualInfo').innerHTML = `
+
+        <div class="alerta-card alerta-info">
+
+            <div class="alerta-icono">
+                ℹ
+            </div>
+
+            <div class="alerta-contenido">
+
+                <h4>
+                    Estado actual
+                </h4>
+
+                <p>
+
+                    <strong>
+                        ${escapeHtml(r.Estado)}
+                    </strong>
+
+                    <br>
+
+                    Destino:
+                    ${escapeHtml(r.Destino)}
+
+                </p>
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    const select =
+        $('nuevoEstado');
+
+
+    select.innerHTML =
+        '<option value="">Seleccione...</option>';
+
+
+    const transiciones =
+        APP.catalogos &&
+        APP.catalogos.transiciones
+            ? APP.catalogos.transiciones
+            : {};
+
+
+    const posibles =
+        transiciones[
+            r.Estado || ''
+        ] || [];
+
+
+    posibles.forEach(
+        estado => {
+
+            const option =
+                document.createElement(
+                    'option'
+                );
+
+            option.value =
+                estado;
+
+            option.textContent =
+                estado;
+
+            select.appendChild(
+                option
+            );
+
+        }
+    );
+
+
+    $('nuevoDestino').innerHTML = '';
+
+    (
+        APP.catalogos.destinos ||
+        []
+    )
+    .forEach(
+        destino => {
+
+            const option =
+                document.createElement(
+                    'option'
+                );
+
+            option.value =
+                destino;
+
+            option.textContent =
+                destino;
+
+            option.selected =
+                destino === r.Destino;
+
+            $('nuevoDestino')
+                .appendChild(
+                    option
+                );
+
+        }
+    );
+
+
+    $('estadoObservaciones').value =
+        '';
+
+
+    $('advertenciaCambioEstado')
+        .innerHTML = '';
+
+
+    abrirModal(
+        'modalEstado'
+    );
+
+}
+
+
+$('nuevoEstado')
+    .addEventListener(
+        'change',
+        function(){
+
+            const nuevo =
+                this.value;
+
+
+            const alerta =
+                $('advertenciaCambioEstado');
+
+
+            alerta.innerHTML =
+                '';
+
+
+            if(nuevo === 'Despachado'){
+
+                alerta.innerHTML = `
+
+                    <div class="alerta-card alerta-advertencia">
+
+                        <div class="alerta-icono">
+                            !
+                        </div>
+
+                        <div class="alerta-contenido">
+
+                            <h4>
+                                Despacho documental
+                            </h4>
+
+                            <p>
+                                Para pasar a <strong>Despachado</strong>,
+                                primero deberá seleccionar y cargar
+                                el PDF oficial del documento.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                `;
+
+            }
+
+
+            if(
+                nuevo ===
+                'Devuelto para corrección'
+            ){
+
+                alerta.innerHTML = `
+
+                    <div class="alerta-card alerta-advertencia">
+
+                        <div class="alerta-icono">
+                            !
+                        </div>
+
+                        <div class="alerta-contenido">
+
+                            <h4>
+                                Devolución
+                            </h4>
+
+                            <p>
+                                Se recomienda registrar el motivo
+                                de la devolución en observaciones.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                `;
+
+            }
+
+
+            if(
+                nuevo ===
+                'Reingresado'
+            ){
+
+                $('campoDestino')
+                    .classList.remove(
+                        'hidden'
+                    );
+
+            }else{
+
+                $('campoDestino')
+                    .classList.remove(
+                        'hidden'
+                    );
+
+            }
+
+        }
+    );
+
+
+$('formEstado')
+    .addEventListener(
+        'submit',
+        async function(e){
+
+            e.preventDefault();
+
+
+            const r =
+                APP.registroActual;
+
+
+            const nuevo =
+                $('nuevoEstado').value;
+
+
+            if(!nuevo){
+
+                mostrarAlerta(
+                    'advertenciaCambioEstado',
+                    'Seleccione el nuevo estado.',
+                    'advertencia'
+                );
+
+                return;
+
+            }
+
+
+            /*
+             * Si el usuario intenta pasar a
+             * Despachado, el PDF debe acompañar
+             * la operación.
+             */
+
+            if(nuevo === 'Despachado'){
+
+                cerrarModal(
+                    'modalEstado'
+                );
+
+                abrirCargaPdf(
+                    true
+                );
+
+                return;
+
+            }
+
+
+            const destino =
+                $('nuevoDestino').value;
+
+
+            const obs =
+                $('estadoObservaciones')
+                    .value
+                    .trim();
+
+
+            const mensaje =
+                `
+                <div class="alerta-card alerta-advertencia">
+
+                    <div class="alerta-icono">
+                        !
+                    </div>
+
+                    <div class="alerta-contenido">
+
+                        <h4>
+                            Confirmar cambio de estado
+                        </h4>
+
+                        <p>
+                            El documento
+                            <strong>
+                                ${escapeHtml(r.ID_Registro)}
+                            </strong>
+                            pasará de
+                            <strong>
+                                ${escapeHtml(r.Estado)}
+                            </strong>
+                            a
+                            <strong>
+                                ${escapeHtml(nuevo)}
+                            </strong>.
+                        </p>
+
+                    </div>
+
+                </div>
+                `;
+
+
+            cerrarModal(
+                'modalEstado'
+            );
+
+
+            abrirConfirmacion(
+                'Confirmar cambio',
+                mensaje,
+                async function(){
+
+                    await ejecutarCambioEstado(
+                        r,
+                        nuevo,
+                        destino,
+                        obs
+                    );
+
+                }
+            );
+
+        }
+    );
+
+
+async function ejecutarCambioEstado(
+    r,
+    nuevo,
+    destino,
+    obs
+){
+
+    try{
+
+        const respuesta =
+            await api(
+                'cambiarEstado',
+                {
+                    id:r.ID_Registro,
+                    estado:nuevo,
+                    destino:destino,
+                    obs:obs
+                }
+            );
+
+
+        APP.registroActual =
+            respuesta.registro;
+
+
+        mostrarMensaje(
+            'Estado actualizado',
+            'El documento fue actualizado correctamente.',
+            'ok'
+        );
+
+
+        await cargarDashboard();
+
+
+        setTimeout(
+            () =>
+                verDocumento(
+                    r.ID_Registro
+                ),
+            500
+        );
+
+
+    }catch(error){
+
+        mostrarMensaje(
+            'No fue posible cambiar el estado',
+            error.message,
+            'error'
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   CARGA PDF
+========================================================= */
+
+function abrirCargaPdf(
+    desdeDespacho=false
+){
+
+    const r =
+        APP.registroActual;
+
+
+    if(!r) return;
+
+
+    /*
+     * Protección adicional en frontend.
+     * El backend también debe validar esta regla.
+     */
+
+    if(
+        r.Estado !==
+        'Pendiente de despacho'
+        &&
+        !desdeDespacho
+    ){
+
+        mostrarMensaje(
+            'Carga no permitida',
+            'El PDF solamente puede cargarse como parte del proceso de despacho.',
+            'error'
+        );
+
+        return;
+
+    }
+
+
+    cerrarModal(
+        'modalDetalle'
+    );
+
+
+    APP.pdfArchivo =
+        null;
+
+
+    $('pdfArchivo').value =
+        '';
+
+    $('pdfNombre').textContent =
+        '';
+
+    $('pdfTamano').textContent =
+        '';
+
+    $('pdfAlerta').innerHTML =
+        '';
+
+    $('pdfProgreso')
+        .classList.add(
+            'hidden'
+        );
+
+    $('pdfProgresoBarra')
+        .style.width =
+        '0';
+
+
+    const limite =
+        obtenerLimitePdf();
+
+
+    $('pdfInfoDocumento').innerHTML = `
+
+        <div class="campo" style="margin-bottom:15px">
+
+            <span>
+                Documento
+            </span>
+
+            <strong>
+                ${escapeHtml(r.ID_Registro)}
+                —
+                ${escapeHtml(r.Cite)}
+            </strong>
+
+        </div>
+
+        <div class="alerta-card alerta-info">
+
+            <div class="alerta-icono">
+                ℹ
+            </div>
+
+            <div class="alerta-contenido">
+
+                <h4>
+                    Límite configurado
+                </h4>
+
+                <p>
+                    El tamaño máximo permitido es
+                    <strong>
+                        ${limite} MB
+                    </strong>,
+                    según el parámetro
+                    <strong>PdfMaxMB</strong>.
+                </p>
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    $('btnEnviarPdf').disabled =
+        true;
+
+
+    abrirModal(
+        'modalPdf'
+    );
+
+}
+
+
+/*
+ * El frontend NO decide arbitrariamente
+ * 8 MB / 15 MB.
+ *
+ * El valor viene de Configuracion.PdfMaxMB.
+ */
+
+function obtenerLimitePdf(){
+
+    /*
+     * El backend debe devolver PdfMaxMB
+     * dentro de catalogos.
+     *
+     * Se mantiene una lectura tolerante
+     * para diferentes versiones.
+     */
+
+    const valor =
+        APP.catalogos &&
+        (
+            APP.catalogos.PdfMaxMB ||
+            APP.catalogos.pdfMaxMB ||
+            APP.catalogos.pdfMaxMb
+        );
+
+
+    const numero =
+        Number(valor);
+
+
+    return numero > 0
+        ? numero
+        : 15;
+
+}
+
+
+$('pdfArchivo')
+    .addEventListener(
+        'change',
+        function(){
+
+            procesarArchivoPdf(
+                this.files &&
+                this.files[0]
+            );
+
+        }
+    );
+
+
+function procesarArchivoPdf(
+    archivo
+){
+
+    APP.pdfArchivo =
+        null;
+
+
+    $('btnEnviarPdf').disabled =
+        true;
+
+
+    $('pdfAlerta').innerHTML =
+        '';
+
+
+    if(!archivo){
+
+        $('pdfNombre').textContent =
+            '';
+
+        $('pdfTamano').textContent =
+            '';
+
+        return;
+
+    }
+
+
+    if(
+        archivo.type !==
+        'application/pdf'
+        &&
+        !archivo.name
+            .toLowerCase()
+            .endsWith('.pdf')
+    ){
+
+        mostrarAlerta(
+            'pdfAlerta',
+            'El archivo seleccionado no es un PDF.',
+            'error'
+        );
+
+        return;
+
+    }
+
+
+    const limite =
+        obtenerLimitePdf();
+
+
+    const maxBytes =
+        limite *
+        1024 *
+        1024;
+
+
+    $('pdfNombre').textContent =
+        archivo.name;
+
+
+    $('pdfTamano').textContent =
+        formatearTamano(
+            archivo.size
+        );
+
+
+    if(archivo.size > maxBytes){
+
+        mostrarAlerta(
+            'pdfAlerta',
+            `El PDF supera el límite configurado de ${limite} MB.`,
+            'error'
+        );
+
+        return;
+
+    }
+
+
+    APP.pdfArchivo =
+        archivo;
+
+
+    $('btnEnviarPdf').disabled =
+        false;
+
+
+    mostrarAlerta(
+        'pdfAlerta',
+        'Archivo válido. Puede continuar con el despacho.',
+        'ok'
+    );
+
+}
+
+
+async function confirmarCargaPdf(){
+
+    const archivo =
+        APP.pdfArchivo;
+
+
+    const r =
+        APP.registroActual;
+
+
+    if(!archivo || !r){
+
+        return;
+
+    }
+
+
+    const limite =
+        obtenerLimitePdf();
+
+
+    const mensaje = `
+
+        <div class="alerta-card alerta-advertencia">
+
+            <div class="alerta-icono">
+                !
+            </div>
+
+            <div class="alerta-contenido">
+
+                <h4>
+                    Confirmar despacho
+                </h4>
+
+                <p>
+                    El PDF
+                    <strong>
+                        ${escapeHtml(archivo.name)}
+                    </strong>
+                    será asociado al documento
+                    <strong>
+                        ${escapeHtml(r.ID_Registro)}
+                    </strong>.
+                </p>
+
+                <p style="margin-top:8px">
+                    Una vez validado el archivo,
+                    el documento pasará al estado
+                    <strong>Despachado</strong>.
+                </p>
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    abrirConfirmacion(
+        'Confirmar carga y despacho',
+        mensaje,
+        async function(){
+
+            await cargarPdfYDespachar(
+                archivo,
+                r,
+                limite
+            );
+
+        }
+    );
+
+}
+
+
+async function cargarPdfYDespachar(
+    archivo,
+    r,
+    limite
+){
+
+    try{
+
+        $('btnEnviarPdf').disabled =
+            true;
+
+
+        $('pdfProgreso')
+            .classList.remove(
+                'hidden'
+            );
+
+
+        const base64 =
+            await archivoABase64(
+                archivo
+            );
+
+
+        actualizarProgresoPdf(
+            45
+        );
+
+
+        /*
+         * La operación sigue siendo una sola
+         * desde la lógica del usuario:
+         *
+         * cargar PDF + pasar a Despachado.
+         *
+         * El backend valida que el documento
+         * pueda ser despachado.
+         */
+
+        const respuesta =
+            await api(
+                'subirPdf',
+                {
+                    id:r.ID_Registro,
+                    base64:base64
+                }
+            );
+
+
+        actualizarProgresoPdf(
+            100
+        );
+
+
+        /*
+         * En la versión backend acordada,
+         * subirPdf registra el PDF pero el estado
+         * debe quedar integrado al despacho.
+         *
+         * Si el backend implementa explícitamente
+         * la transición dentro de subirPdf,
+         * no hace falta una segunda llamada.
+         *
+         * Si todavía devuelve solamente el enlace,
+         * realizamos el cambio de estado.
+         */
+
+        if(
+            respuesta.registro &&
+            respuesta.registro.Estado ===
+            'Despachado'
+        ){
+
+            APP.registroActual =
+                respuesta.registro;
+
+        }else{
+
+            const cambio =
+                await api(
+                    'cambiarEstado',
+                    {
+                        id:r.ID_Registro,
+                        estado:'Despachado',
+                        destino:r.Destino,
+                        obs:'Despacho realizado con PDF digital asociado.'
+                    }
+                );
+
+
+            APP.registroActual =
+                cambio.registro;
+
+        }
+
+
+        cerrarModal(
+            'modalPdf'
+        );
+
+
+        mostrarMensaje(
+            'Despacho realizado',
+            'El PDF fue cargado correctamente y el documento pasó a Despachado.',
+            'ok'
+        );
+
+
+        await cargarDashboard();
+
+
+        setTimeout(
+            () =>
+                verDocumento(
+                    r.ID_Registro
+                ),
+            600
+        );
+
+
+    }catch(error){
+
+        $('btnEnviarPdf').disabled =
+            false;
+
+
+        mostrarAlerta(
+            'pdfAlerta',
+            error.message,
+            'error'
+        );
+
+    }
+
+}
+
+
+function archivoABase64(
+    archivo
+){
+
+    return new Promise(
+        (resolve,reject) => {
+
+            const reader =
+                new FileReader();
+
+
+            reader.onload =
+                function(){
+
+                    const resultado =
+                        reader.result;
+
+                    const base64 =
+                        resultado
+                            .split(',')[1];
+
+
+                    resolve(
+                        base64
+                    );
+
+                };
+
+
+            reader.onerror =
+                reject;
+
+
+            reader.readAsDataURL(
+                archivo
+            );
+
+        }
+    );
+
+}
+
+
+function actualizarProgresoPdf(
+    porcentaje
+){
+
+    $('pdfProgresoBarra')
+        .style.width =
+        porcentaje + '%';
+
+}
+
+
+/* =========================================================
+   ALTA
+========================================================= */
+
+$('formAlta')
+    .addEventListener(
+        'submit',
+        async function(e){
+
+            e.preventDefault();
+
+            limpiarAlerta(
+                'altaAlerta'
+            );
+
+
+            const datos = {
+
+                gestion:
+                    Number(
+                        $('altaGestion').value
+                    ),
+
+                dependencia:
+                    $('altaDependencia').value,
+
+                unidad:
+                    $('altaUnidad').value,
+
+                tipo:
+                    $('altaTipo').value,
+
+                numeroCite:
+                    $('altaNumeroCite').value,
+
+                destinatario:
+                    $('altaDestinatario').value.trim(),
+
+                asunto:
+                    $('altaAsunto').value.trim(),
+
+                remitente:
+                    $('altaRemitente').value.trim(),
+
+                referencia:
+                    $('altaReferencia').value.trim(),
+
+                responsable:
+                    $('altaResponsable').value.trim(),
+
+                destino:
+                    $('altaDestino').value,
+
+                observaciones:
+                    $('altaObservaciones').value.trim()
+
+            };
+
+
+            if(
+                !datos.dependencia ||
+                !datos.unidad ||
+                !datos.tipo ||
+                !datos.numeroCite ||
+                !datos.destinatario ||
+                !datos.asunto ||
+                !datos.remitente ||
+                !datos.responsable ||
+                !datos.destino
+            ){
+
+                mostrarAlerta(
+                    'altaAlerta',
+                    'Complete todos los campos obligatorios.',
+                    'advertencia'
+                );
+
+                return;
+
+            }
+
+
+            const confirmar =
+                () =>
+                    registrarDocumento(
+                        datos
+                    );
+
+
+            abrirConfirmacion(
+                'Confirmar registro',
+                `
+                    <div class="alerta-card alerta-info">
+
+                        <div class="alerta-icono">
+                            ℹ
+                        </div>
+
+                        <div class="alerta-contenido">
+
+                            <h4>
+                                ¿Registrar documento?
+                            </h4>
+
+                            <p>
+                                Se generará un nuevo registro
+                                centralizado en R_Principal.
+                            </p>
+
+                            <p style="margin-top:8px">
+                                El Cite será generado automáticamente
+                                por el sistema.
+                            </p>
+
+                        </div>
+
+                    </div>
+                `,
+                confirmar
+            );
+
+        }
+    );
+
+
+async function registrarDocumento(
+    datos
+){
+
+    const boton =
+        $('btnAlta');
+
+
+    boton.disabled =
+        true;
+
+
+    boton.innerHTML =
+        '<span class="spinner"></span> Registrando...';
+
+
+    try{
+
+        const r =
+            await api(
+                'alta',
+                datos
+            );
+
+
+        limpiarAlta();
+
+
+        mostrarAlerta(
+            'altaAlerta',
+            `Documento registrado correctamente. ID: ${r.id}. Cite: ${r.cite}.`,
+            'ok'
+        );
+
+
+        await cargarDashboard();
+
+
+    }catch(error){
+
+        mostrarAlerta(
+            'altaAlerta',
+            error.message,
+            'error'
+        );
+
+    }finally{
+
+        boton.disabled =
+            false;
+
+        boton.textContent =
+            'Registrar documento';
+
+    }
+
+}
+
+
+function limpiarAlta(){
+
+    $('formAlta').reset();
+
+    $('altaGestion').value =
+        APP.catalogos
+            ? APP.catalogos.gestion
+            : '';
+
+    $('altaUnidad').innerHTML =
+        '<option value="">Seleccione...</option>';
+
+    $('altaUnidad').disabled =
+        true;
+
+}
+
+
+/* =========================================================
+   USUARIOS
+========================================================= */
+
+async function cargarUsuarios(){
+
+    if(
+        !APP.usuario ||
+        APP.usuario.rol !==
+        'Administrador'
+    ){
+
+        return;
+
+    }
+
+
+    try{
+
+        const r =
+            await api(
+                'listarUsuarios'
+            );
+
+
+        renderUsuarios(
+            r.usuarios || []
+        );
+
+
+    }catch(error){
+
+        mostrarMensaje(
+            'No fue posible cargar los usuarios.',
+            error.message,
+            'error'
+        );
+
+    }
+
+}
+
+
+function renderUsuarios(
+    usuarios
+){
+
+    const tbody =
+        $('tablaUsuarios');
+
+
+    if(!usuarios.length){
+
+        tbody.innerHTML = `
+
+            <tr>
+
+                <td
+                    colspan="7"
+                    class="texto-centro">
+
+                    No existen usuarios.
+
+                </td>
+
+            </tr>
+
+        `;
+
+        return;
+
+    }
+
+
+    tbody.innerHTML =
+        usuarios
+            .map(
+                u => {
+
+                    const activo =
+                        ['SI','SÍ','TRUE','1']
+                            .includes(
+                                String(
+                                    u.Activo
+                                ).toUpperCase()
+                            );
+
+
+                    return `
+
+                        <tr>
+
+                            <td>
+                                ${escapeHtml(
+                                    u.ID_Usuario
+                                )}
+                            </td>
+
+                            <td>
+                                <strong>
+                                    ${escapeHtml(
+                                        u.Nombre_Usuario
+                                    )}
+                                </strong>
+                            </td>
+
+                            <td>
+                                ${escapeHtml(
+                                    u.Nombre_Completo
+                                )}
+                            </td>
+
+                            <td>
+                                ${escapeHtml(
+                                    u.Dependencia
+                                )}
+                            </td>
+
+                            <td>
+                                <span class="badge azul">
+                                    ${escapeHtml(
+                                        u.Rol
+                                    )}
+                                </span>
+                            </td>
+
+                            <td>
+
+                                ${
