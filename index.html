@@ -3,17 +3,1014 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Seguimiento de Firmas VGCI</title>
 <style>
-*{box-sizing:border-box}body{font-family:Arial,sans-serif;margin:0;background:#f3f4f6;color:#222}
-header{background:#1f4e78;color:#fff;padding:12px 16px;display:flex;justify-content:space-between;align-items:center}
-main{padding:14px;max-width:900px;margin:auto}.p{background:#fff;border-radius:8px;padding:14px;margin-bottom:14px;box-shadow:0 2px 8px #0002}
-input,select,textarea,button{font-size:16px;padding:10px;width:100%;margin:4px 0 10px;border:1px solid #bbb;border-radius:6px}
-button{background:#1f4e78;color:#fff;border:0;cursor:pointer}button.s{background:#666}
-label{font-weight:bold;font-size:14px}.g{display:grid;gap:0 12px;grid-template-columns:1fr 1fr}
-@media(max-width:600px){.g{grid-template-columns:1fr}}
-.c{border:1px solid #ddd;border-radius:8px;padding:10px;margin:8px 0;cursor:pointer}
-.VERDE{color:#274e13}.AMARILLO{color:#b45f06}.ROJO{color:#990000}b.sem{font-size:13px}
-#msg{padding:10px;border-radius:6px;margin-bottom:12px;display:none}.ok{background:#d9ead3}.er{background:#f4cccc}
-.h{display:none}
+:root{
+    --blanco:#FFFFFF;
+    --dorado:#B5993A;
+    --dorado-oscuro:#9E842D;
+    --gris-institucional:#585857;
+    --azul-institucional:#242732;
+
+    --rojo-bolivia:#E30613;
+    --amarillo-bolivia:#FFED00;
+    --verde-bolivia:#008739;
+
+    --fondo:#F4F4F3;
+    --gris-claro:#E7E7E5;
+    --gris-borde:#D4D4D1;
+    --gris-medio:#8A8A87;
+
+    --verde-ok:#008739;
+    --rojo-error:#C62828;
+    --amarillo-alerta:#F0C928;
+
+    --sombra-suave:0 2px 8px rgba(36,39,50,.07);
+    --sombra-media:0 5px 18px rgba(36,39,50,.10);
+}
+
+*,
+*::before,
+*::after{
+    box-sizing:border-box;
+}
+
+html{
+    min-height:100%;
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    min-height:100vh;
+    font-family:Arial,Helvetica,sans-serif;
+    background:var(--fondo);
+    color:var(--azul-institucional);
+    line-height:1.45;
+}
+
+/* =========================================================
+   CONTROLES GENERALES
+========================================================= */
+
+input,
+select,
+textarea,
+button{
+    font:inherit;
+}
+
+button{
+    border:0;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible{
+    outline:3px solid rgba(181,153,58,.28);
+    outline-offset:2px;
+}
+
+h1,
+h2,
+h3,
+h4,
+p{
+    margin-top:0;
+}
+
+.h{
+    display:none!important;
+}
+
+/* =========================================================
+   ENCABEZADO
+========================================================= */
+
+header{
+    position:relative;
+
+    background:var(--azul-institucional);
+    color:var(--blanco);
+
+    padding:22px 30px 0;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    min-height:88px;
+
+    box-shadow:0 2px 8px rgba(36,39,50,.12);
+}
+
+/* Línea institucional dorada */
+header::after{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    right:0;
+    bottom:0;
+
+    height:4px;
+
+    background:
+        linear-gradient(
+            to right,
+            var(--rojo-bolivia) 0%,
+            var(--rojo-bolivia) 33.33%,
+            var(--amarillo-bolivia) 33.33%,
+            var(--amarillo-bolivia) 66.66%,
+            var(--verde-bolivia) 66.66%,
+            var(--verde-bolivia) 100%
+        );
+}
+
+header b{
+    position:relative;
+
+    display:flex;
+    align-items:center;
+
+    min-height:48px;
+
+    padding-left:18px;
+
+    color:var(--blanco);
+
+    font-size:23px;
+    font-weight:600;
+    line-height:1.2;
+}
+
+header b::before{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    top:0;
+    bottom:0;
+
+    width:4px;
+
+    background:var(--dorado);
+
+    border-radius:2px;
+}
+
+#quien{
+    display:inline-flex;
+    align-items:center;
+
+    min-height:36px;
+
+    padding:8px 15px;
+
+    margin-bottom:4px;
+
+    border-radius:20px;
+
+    background:var(--gris-institucional);
+    border:1px solid rgba(255,255,255,.15);
+
+    color:var(--blanco);
+
+    font-size:13px;
+    font-weight:600;
+
+    white-space:nowrap;
+}
+
+/* =========================================================
+   CONTENEDOR PRINCIPAL
+========================================================= */
+
+main{
+    width:min(1200px,94%);
+
+    margin:28px auto 34px;
+
+    padding:0;
+
+    max-width:none;
+}
+
+/* =========================================================
+   TARJETAS
+========================================================= */
+
+.p{
+    background:var(--blanco);
+
+    border:1px solid var(--gris-claro);
+
+    border-radius:8px;
+
+    padding:24px;
+
+    margin-bottom:20px;
+
+    box-shadow:var(--sombra-suave);
+}
+
+.p h3{
+    margin:0 0 18px;
+
+    color:var(--azul-institucional);
+
+    font-size:20px;
+    font-weight:600;
+}
+
+.p h4{
+    color:var(--azul-institucional);
+
+    font-size:16px;
+
+    margin:20px 0 10px;
+}
+
+/* =========================================================
+   LOGIN
+========================================================= */
+
+#vLogin{
+    width:min(440px,100%);
+
+    margin:55px auto 20px;
+}
+
+#vLogin h3{
+    text-align:center;
+
+    padding-bottom:15px;
+
+    margin-bottom:20px;
+
+    border-bottom:1px solid var(--gris-claro);
+}
+
+#vLogin h3::before{
+    content:"VGCI";
+
+    display:flex;
+
+    width:64px;
+    height:64px;
+
+    margin:0 auto 15px;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:var(--azul-institucional);
+
+    border:3px solid var(--dorado);
+
+    color:var(--dorado);
+
+    font-size:20px;
+    font-weight:bold;
+}
+
+/* =========================================================
+   FORMULARIOS
+========================================================= */
+
+label{
+    display:block;
+
+    margin:10px 0 5px;
+
+    color:var(--gris-institucional);
+
+    font-size:13px;
+    font-weight:600;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+
+    padding:11px 12px;
+
+    border:1px solid var(--gris-borde);
+
+    border-radius:5px;
+
+    background:var(--blanco);
+
+    color:var(--azul-institucional);
+
+    outline:none;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+input:hover,
+select:hover,
+textarea:hover{
+    border-color:#A8A8A5;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    border-color:var(--dorado);
+
+    box-shadow:
+        0 0 0 3px rgba(181,153,58,.15);
+}
+
+textarea{
+    min-height:100px;
+
+    resize:vertical;
+}
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.g{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
+    gap:12px;
+}
+
+/* =========================================================
+   BOTONES
+========================================================= */
+
+button{
+    min-height:42px;
+
+    padding:10px 18px;
+
+    margin:4px 0 10px;
+
+    border-radius:5px;
+
+    background:var(--dorado);
+
+    color:var(--blanco);
+
+    cursor:pointer;
+
+    font-size:14px;
+    font-weight:bold;
+
+    transition:
+        background .2s ease,
+        transform .1s ease,
+        box-shadow .2s ease;
+}
+
+button:hover{
+    background:var(--dorado-oscuro);
+
+    box-shadow:
+        0 2px 5px rgba(36,39,50,.12);
+}
+
+button:active{
+    transform:translateY(1px);
+}
+
+button:disabled{
+    background:#A5A5A2;
+
+    cursor:not-allowed;
+}
+
+/* Botón secundario */
+button.s{
+    background:#E7E7E5;
+
+    color:var(--azul-institucional);
+}
+
+button.s:hover{
+    background:#D8D8D6;
+}
+
+/* =========================================================
+   MENSAJES
+========================================================= */
+
+#msg{
+    display:none;
+
+    margin-bottom:15px;
+
+    padding:12px 14px;
+
+    border-radius:5px;
+
+    font-size:14px;
+
+    border-left:4px solid var(--dorado);
+
+    background:#F3EBD2;
+
+    color:#66551F;
+}
+
+#msg.ok{
+    display:block;
+
+    background:#E1F0E6;
+
+    color:#185C2C;
+
+    border-left-color:var(--verde-ok);
+}
+
+#msg.er{
+    display:block;
+
+    background:#F8D7DA;
+
+    color:#842029;
+
+    border-left-color:var(--rojo-error);
+}
+
+/* =========================================================
+   RESULTADOS / DOCUMENTOS
+========================================================= */
+
+.c{
+    position:relative;
+
+    padding:16px;
+
+    margin:10px 0;
+
+    background:#FAFAF9;
+
+    border:1px solid var(--gris-claro);
+
+    border-radius:7px;
+
+    cursor:pointer;
+
+    color:var(--gris-institucional);
+
+    transition:
+        background .2s ease,
+        border-color .2s ease,
+        transform .1s ease,
+        box-shadow .2s ease;
+}
+
+.c:hover{
+    background:#F5F1E4;
+
+    border-color:#D8CC9D;
+
+    box-shadow:
+        0 3px 10px rgba(36,39,50,.08);
+
+    transform:translateY(-1px);
+}
+
+.c b:first-child{
+    color:var(--azul-institucional);
+
+    font-size:15px;
+}
+
+.c br + *{
+    color:var(--gris-institucional);
+}
+
+/* =========================================================
+   SEMÁFORO
+========================================================= */
+
+b.sem{
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    min-width:88px;
+
+    min-height:30px;
+
+    margin-left:8px;
+
+    padding:5px 10px;
+
+    border-radius:20px;
+
+    font-size:11px!important;
+    font-weight:bold;
+
+    white-space:nowrap;
+}
+
+/* Verde */
+b.sem.VERDE{
+    background:var(--verde-ok);
+
+    color:var(--blanco);
+}
+
+/* Amarillo */
+b.sem.AMARILLO{
+    background:var(--amarillo-alerta);
+
+    color:var(--azul-institucional);
+}
+
+/* Rojo */
+b.sem.ROJO{
+    background:var(--rojo-error);
+
+    color:var(--blanco);
+}
+
+/* =========================================================
+   DETALLE
+========================================================= */
+
+#vDet{
+    position:relative;
+}
+
+#vDet h3{
+    margin-bottom:15px;
+
+    padding-bottom:12px;
+
+    border-bottom:1px solid var(--gris-claro);
+
+    color:var(--azul-institucional);
+}
+
+#vDet p{
+    padding:15px;
+
+    background:#FAFAF9;
+
+    border:1px solid var(--gris-claro);
+
+    border-radius:6px;
+
+    color:var(--gris-institucional);
+}
+
+#vDet a{
+    display:inline-flex;
+
+    align-items:center;
+
+    min-height:34px;
+
+    padding:7px 12px;
+
+    margin-top:8px;
+
+    border-radius:5px;
+
+    background:var(--azul-institucional);
+
+    color:var(--blanco);
+
+    text-decoration:none;
+
+    font-size:12px;
+    font-weight:bold;
+}
+
+#vDet a:hover{
+    background:#303441;
+}
+
+/* =========================================================
+   HISTORIAL
+========================================================= */
+
+#vDet h4{
+    padding-bottom:8px;
+
+    border-bottom:1px solid var(--gris-claro);
+}
+
+#vDet h4 + div{
+    border-top:0;
+}
+
+#vDet div:not(.g){
+    color:var(--gris-institucional);
+}
+
+/* =========================================================
+   CARGA DE PDF
+========================================================= */
+
+input[type="file"]{
+    padding:9px;
+
+    background:#FAFAF9;
+
+    cursor:pointer;
+}
+
+input[type="file"]::file-selector-button{
+    margin-right:10px;
+
+    padding:8px 12px;
+
+    border:0;
+
+    border-radius:4px;
+
+    background:var(--azul-institucional);
+
+    color:var(--blanco);
+
+    cursor:pointer;
+
+    font-size:12px;
+    font-weight:bold;
+}
+
+input[type="file"]::file-selector-button:hover{
+    background:#303441;
+}
+
+/* =========================================================
+   SECCIÓN USUARIOS
+========================================================= */
+
+#lu2{
+    margin-bottom:20px;
+}
+
+#lu2 .c{
+    cursor:default;
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    align-items:center;
+
+    gap:8px;
+}
+
+#lu2 .c:hover{
+    transform:none;
+}
+
+#lu2 .c button{
+    width:auto;
+
+    min-height:34px;
+
+    margin:3px 0 0;
+
+    padding:7px 11px;
+
+    font-size:12px;
+}
+
+#lu2 .c b{
+    color:var(--azul-institucional);
+}
+
+/* =========================================================
+   SELECTS
+========================================================= */
+
+select{
+    cursor:pointer;
+}
+
+/* =========================================================
+   CAMPOS DE BÚSQUEDA
+========================================================= */
+
+#bq{
+    background:#fff;
+}
+
+#be{
+    background:#fff;
+}
+
+/* =========================================================
+   SECCIÓN DE BÚSQUEDA
+========================================================= */
+
+#vApp > .p:first-child h3{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+#vApp > .p:first-child h3::before{
+    content:"";
+
+    display:inline-block;
+
+    width:4px;
+    height:24px;
+
+    background:var(--dorado);
+
+    border-radius:2px;
+}
+
+/* =========================================================
+   NUEVO REGISTRO
+========================================================= */
+
+#pAlta h3{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+#pAlta h3::before{
+    content:"";
+
+    display:inline-block;
+
+    width:4px;
+    height:24px;
+
+    background:var(--dorado);
+
+    border-radius:2px;
+}
+
+/* =========================================================
+   USUARIOS
+========================================================= */
+
+#pUsu h3{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+#pUsu h3::before{
+    content:"";
+
+    display:inline-block;
+
+    width:4px;
+    height:24px;
+
+    background:var(--dorado);
+
+    border-radius:2px;
+}
+
+/* =========================================================
+   CIERRE DE SESIÓN
+========================================================= */
+
+#vApp > button.s:last-child{
+    display:block;
+
+    width:auto;
+
+    min-width:150px;
+
+    margin:5px auto 25px;
+}
+
+/* =========================================================
+   ESTADO DE CAMPOS
+========================================================= */
+
+input::placeholder,
+textarea::placeholder{
+    color:#999;
+
+    opacity:1;
+}
+
+/* =========================================================
+   SCROLL
+========================================================= */
+
+::-webkit-scrollbar{
+    width:9px;
+    height:9px;
+}
+
+::-webkit-scrollbar-track{
+    background:#E7E7E5;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#A8A8A5;
+
+    border-radius:8px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#858581;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:900px){
+
+    .g{
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+    }
+
+    main{
+        width:94%;
+    }
+}
+
+@media(max-width:700px){
+
+    header{
+        padding:18px 18px 0;
+
+        min-height:auto;
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:16px;
+    }
+
+    header b{
+        width:100%;
+
+        font-size:20px;
+    }
+
+    #quien{
+        width:100%;
+
+        justify-content:center;
+
+        margin-bottom:12px;
+    }
+
+    main{
+        width:94%;
+
+        margin-top:20px;
+        margin-bottom:24px;
+    }
+
+    .p{
+        padding:18px;
+
+        margin-bottom:16px;
+    }
+
+    .p h3{
+        font-size:18px;
+    }
+
+    .g{
+        grid-template-columns:1fr;
+    }
+
+    button{
+        width:100%;
+    }
+
+    #lu2 .c{
+        display:block;
+    }
+
+    #lu2 .c button{
+        display:inline-block;
+
+        width:auto;
+
+        margin-right:5px;
+    }
+
+    b.sem{
+        margin-left:0;
+
+        margin-top:8px;
+    }
+
+    #vDet .sem{
+        display:inline-flex;
+    }
+}
+
+@media(max-width:420px){
+
+    header{
+        padding-left:14px;
+        padding-right:14px;
+    }
+
+    header b{
+        font-size:18px;
+
+        padding-left:14px;
+    }
+
+    header b::before{
+        width:3px;
+    }
+
+    main{
+        width:calc(100% - 20px);
+    }
+
+    .p{
+        padding:15px;
+    }
+
+    button{
+        font-size:14px;
+    }
+
+    #vLogin{
+        margin-top:30px;
+    }
+
+    #vLogin h3::before{
+        width:58px;
+        height:58px;
+    }
+}
+
+/* =========================================================
+   ANIMACIONES SUAVES
+========================================================= */
+
+.p{
+    animation:
+        aparecer .22s ease-out;
+}
+
+@keyframes aparecer{
+
+    from{
+        opacity:0;
+        transform:translateY(4px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =========================================================
+   IMPRESIÓN
+========================================================= */
+
+@media print{
+
+    body{
+        background:#fff;
+    }
+
+    header,
+    button,
+    #msg{
+        display:none!important;
+    }
+
+    main{
+        width:100%;
+        margin:0;
+    }
+
+    .p{
+        border:0;
+
+        box-shadow:none;
+
+        page-break-inside:avoid;
+    }
+}
 </style></head><body>
 <header><b>Seguimiento de Firmas VGCI</b><span id="quien"></span></header>
 <main>
